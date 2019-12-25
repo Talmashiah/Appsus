@@ -2,7 +2,8 @@
 import storageService from '../../services/storageService.js'
 
 export default {
-    getNotes
+    getNotes,
+    getNoteById
 }
 
 let gNotes = [
@@ -50,4 +51,10 @@ function getNotes() {
     // const filteredEmails = gBooks.filter(book => book.title.includes(filterBy.name)
     //     && book.listPrice.amount < filterBy.price);
     return Promise.resolve([...gNotes]);
+}
+
+function getNoteById(NoteId) {
+    if (storageService.load('notes')) gNotes = storageService.load('notes');
+    const note = gNotes.find(note => note.id == NoteId);
+    return Promise.resolve(note);
 }

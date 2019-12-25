@@ -1,5 +1,6 @@
 import NoteList from '../../notes/pages/NoteList.jsx'
 import NotePage from '../../notes/pages/NotePage.jsx'
+import NoteModal from '../../notes/cmps/NoteModal.jsx'
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -12,6 +13,7 @@ export default class NoteApp extends React.Component {
         return (
             <main>
                 <Router history={history}>
+                    <NoteModal></NoteModal>
                     <Switch>
                         <Route component={NoteList} path="/noteApp" exact />
                         <Route component={NotePage} path="/noteApp/note/:id" exact />
