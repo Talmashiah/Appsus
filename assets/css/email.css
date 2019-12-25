@@ -1,0 +1,54 @@
+/* Email Preview */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.email-preview-container {
+    display: flex;
+}
+
+.email-preview {
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.email-preview:active {
+    color: blue;
+}
+
+.email-preview p {
+    max-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subject-preview {
+    display: flex;
+}
+
+.from-preview {
+    padding-right: 150px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.unbold {
+    font-weight:100;
+}
+
+/* Email Page */

@@ -22,11 +22,22 @@ export default class EmailList extends React.Component {
         this.setState({ filterBy }, this.loadEmails());
     }
 
+    deleteEmail = (email) => {
+        emailsService.deleteEmail(email);
+        this.loadEmails();
+        this.props.history.push('/emailApp');
+    }
+
+    toggleRead = (email) => {
+        emailsService.toggleRead(email);
+        this.loadEmails();
+    }
+
     render() {
         return (
             <section>
                 <EmailFilter key="1" onSetFilter={this.onSetFilter} />
-                <ul>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email}></EmailPreview>)}</ul>
+                <ul>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail} toggleRead={this.toggleRead}></EmailPreview>)}</ul>
             </section>
         )
     }
