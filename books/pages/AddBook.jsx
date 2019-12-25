@@ -1,5 +1,5 @@
-import booksService from '../services/booksService.js'
-import eventBusService from '../services/eventBusService.js'
+import booksService from '../../services/booksService.js'
+import eventBusService from '../../services/eventBusService.js'
 
 export default class AddBook extends React.Component {
     state = {

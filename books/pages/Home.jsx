@@ -1,6 +1,6 @@
-import booksService from '../services/booksService.js'
-import BookList from '../cmps/BookList.jsx'
-import BookFilter from '../cmps/BookFilter.jsx'
+import booksService from '../../services/booksService.js'
+import BookList from '../../books/cmps/BookList.jsx'
+import BookFilter from '../../books/cmps/BookFilter.jsx'
 
 export default class Home extends React.Component {
     state = {

@@ -1,4 +1,4 @@
-import ReviewForm from "../cmps/ReviewForm.jsx";
+import ReviewForm from '../../books/cmps/ReviewForm.jsx';
 
 export default class AddReview extends React.Component {
 

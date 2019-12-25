@@ -1,4 +1,4 @@
-import BookPreview from "../cmps/BookPreview.jsx";
+import BookPreview from "../../books/cmps/BookPreview.jsx";
 
 export default class PetDetails extends React.Component {
     state = { priceColor: '', pageCountTxt: '', publishedDateTxt: '',isForSale:false }

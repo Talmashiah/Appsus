@@ -1,4 +1,4 @@
-import eventBusService from "../services/eventBusService.js";
+import eventBusService from "../../services/eventBusService.js";
 const { Link } = ReactRouterDOM;
 
 export default class UserMsg extends React.Component {

@@ -1,8 +1,8 @@
-import BookApp from './Apps/BookApp.jsx'
-import EmailApp from './Apps/EmailApp.jsx'
-import NoteApp from './Apps/NoteApp.jsx'
-import AppsusHome from './pages/appsus/AppsusHome.jsx'
-import AppsusNavBar from './cmps/cmpsAppsus/AppsusNavBar.jsx'
+import BookApp from './appsus/pages/BookApp.jsx';
+import EmailApp from './appsus/pages/EmailApp.jsx'
+import NoteApp from './appsus/pages/NoteApp.jsx'
+import AppsusHome from './appsus/pages/AppsusHome.jsx'
+import AppsusNavBar from './appsus/cmps/AppsusNavBar.jsx'
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -19,8 +19,8 @@ class AppSus extends React.Component {
                     <Switch>
                         <Route component={AppsusHome} path="/home" exact />
                         <Route component={BookApp} path="/booksApp"/>
-                        <Route component={EmailApp} path="/emailApp" exact />
-                        <Route component={NoteApp} path="/noteApp" exact />
+                        <Route component={EmailApp} path="/emailApp"/>
+                        <Route component={NoteApp} path="/noteApp"/>
                     </Switch>
                 </Router>
             </main>

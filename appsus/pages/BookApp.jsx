@@ -1,10 +1,10 @@
-import Home from '../pages/Home.jsx'
-import BookPage from '../pages/BookPage.jsx'
-import NavBar from '../cmps/NavBar.jsx'
-import aboutPage from '../pages/aboutPage.jsx'
-import AddBook from '../pages/AddBook.jsx'
-import notFoundPage from '../pages/notFoundPage.jsx'
-import UserMsg from '../cmps/UserMsg.jsx'
+import Home from "../../books/pages/Home.jsx"
+import BookPage from '../../books/pages/BookPage.jsx'
+import NavBar from '../../books/cmps/NavBar.jsx'
+import aboutPage from '../../books/pages/aboutPage.jsx'
+import AddBook from '../../books/pages/AddBook.jsx'
+import notFoundPage from '../../books/pages/notFoundPage.jsx'
+import UserMsg from '../../books/cmps/UserMsg.jsx'
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM

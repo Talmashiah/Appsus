@@ -1,7 +1,7 @@
-import booksService from '../services/booksService.js'
-import BookDetails from '../cmps/BookDetails.jsx'
-import AddReview from '../cmps/AddReview.jsx'
-import ReviewsPreview from '../cmps/ReviewsPreview.jsx'
+import booksService from '../../services/booksService.js'
+import BookDetails from '../../books/cmps/BookDetails.jsx'
+import AddReview from '../../books/cmps/AddReview.jsx'
+import ReviewsPreview from '../../books/cmps/ReviewsPreview.jsx'
 
 export default class BookPage extends React.Component {
     state = {
