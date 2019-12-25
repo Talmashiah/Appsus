@@ -7,7 +7,7 @@ export default class EmailFilter extends React.Component {
     }
     changeInput = (ev) => {
         const field = ev.target.name;
-        const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value;
+        const value = ev.target.value;
         this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [field]: value } }), function () {
             this.onFilterClick();
         })
@@ -20,7 +20,7 @@ export default class EmailFilter extends React.Component {
 
     render() {
         return <div className="search-bar">
-            <input className="search-input" type="text" placeholder="Search by name" value={this.state.filterBy.name}
+            <input className="search-input" type="text" placeholder="Search Mail" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input>
         </div>
     }
