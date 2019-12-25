@@ -8,6 +8,7 @@ export default function AppsusNavBar() {
             <li><NavLink activeClassName="active" to='/booksApp'>Books</NavLink></li>
             <li><NavLink activeClassName="active" to='/noteApp'>Notes</NavLink></li>
             <li><NavLink activeClassName="active" to='/emailApp'>Emails</NavLink></li>
+            <li><NavLink activeClassName="active" to='/about'>About</NavLink></li>
             </div>
         </ul>
     </nav>

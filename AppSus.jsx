@@ -3,6 +3,7 @@ import EmailApp from './appsus/pages/EmailApp.jsx'
 import NoteApp from './appsus/pages/NoteApp.jsx'
 import AppsusHome from './appsus/pages/AppsusHome.jsx'
 import AppsusNavBar from './appsus/cmps/AppsusNavBar.jsx'
+import aboutPage from './appsus/pages/aboutPage.jsx'
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -21,6 +22,7 @@ class AppSus extends React.Component {
                         <Route component={BookApp} path="/booksApp"/>
                         <Route component={EmailApp} path="/emailApp"/>
                         <Route component={NoteApp} path="/noteApp"/>
+                        <Route component={aboutPage} path="/about" exact />
                     </Switch>
                 </Router>
             </main>
