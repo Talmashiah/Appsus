@@ -1,3 +1,7 @@
+import EmailList from '../../emails/pages/EmailList.jsx'
+import EmailPage from '../../emails/pages/EmailPage.jsx'
+
+
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
@@ -12,7 +16,6 @@ export default class EmailApp extends React.Component {
                     <Switch>
                         <Route component={EmailList} path="/emailApp" exact />
                         <Route component={EmailPage} path="/emailApp/email/:id" exact />
-                        <Route component={notFoundPage} path="/emailApp" />
                     </Switch>
                 </Router>
             </main>
