@@ -18,6 +18,7 @@ export default class NoteListPage extends React.Component {
     }
 
     render() {
+        console.log(this.state.notes)
         return (
             <section>
                     <div className="notes-container">

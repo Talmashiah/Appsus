@@ -7,29 +7,34 @@ export default {
 
 let gNotes = [
     {
+        id:1,
         type: "NoteText",
         isPinned: true,
         info: {
-            txt: "Fullstack Me Baby!"
+            title: "Im a nice title",
+            txt: "yo yo yo this is the text baby!"
         }
     },
     {
+        id:2,
         type: "NoteImg",
         info: {
-            url: "http://some-img/me",
-            title: "Me playing Mi"
+            url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/37/31/3b/mount-kilimanjaro-view.jpg",
+            title: "Nice View from Berlin",
+            txt: "That trip was fucking amazing!"
         },
         style: {
             backgroundColor: "#00d"
         }
     },
     {
+        id:3,
         type: "NoteTodos",
         info: {
-            label: "How was it:",
+            title: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { txt: "Do that", doneAt: null, isDone: false },
+                { txt: "Do this", doneAt: 187111111, isDone: true }
             ]
         }
     }

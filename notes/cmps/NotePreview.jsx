@@ -1,15 +1,17 @@
-const { Link } = ReactRouterDOM
+import NoteText from '../../notes/cmps/NoteText.jsx'
+import NoteImg from '../../notes/cmps/NoteImg.jsx'
+import NoteTodos from '../../notes/cmps/NoteTodos.jsx'
 
 export default class NotePreview extends React.Component {
 
-    DynamicCmp = (type) => {
-        switch (type) {
+    DynamicCmp = (note) => {
+        switch (note.type) {
             case 'NoteText':
-                return <h1>NoteText</h1>
+                return <NoteText note={note}></NoteText>
             case 'NoteImg':
-                return <h1>NoteImg</h1>
+                return <NoteImg note={note}></NoteImg>
             case 'NoteTodos':
-                return <h1>NoteTodos</h1>
+                return <NoteTodos note={note}></NoteTodos>
             default:
                 return //...some default error view
         }
@@ -17,6 +19,6 @@ export default class NotePreview extends React.Component {
 
     render() {
         const { props } = this;
-        return <div>{this.DynamicCmp(props.note.type)}</div>
+        return <div>{this.DynamicCmp(props.note)}</div>
     }
 }

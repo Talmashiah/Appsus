@@ -1,0 +1,15 @@
+.note-container{
+    width:240px;
+    border:solid 1px lightgrey;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.note-container img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.todo-done{
+    text-decoration: line-through;
+}
