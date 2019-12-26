@@ -17,6 +17,7 @@ body {
     border:solid 1px lightgrey;
     margin: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .note-container .note-img{

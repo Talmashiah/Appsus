@@ -7,7 +7,7 @@ export default class NoteText extends React.Component {
 
     render() {
         const { props } = this;
-        return <div className="note-container" onClick={this.handleClick}>
+        return <div onClick={this.handleClick}>
                 <div>{props.note.info.title}</div>
                 <div>{props.note.info.txt}</div>
             </div>

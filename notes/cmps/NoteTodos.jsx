@@ -7,7 +7,7 @@ export default class NoteTodos extends React.Component {
 
     render() {
         const { props } = this;
-        return <div className="note-container" onClick={this.handleClick}>
+        return <div onClick={this.handleClick}>
             <div>{props.note.info.title}</div>
             <ul>
                 {props.note.info.todos.map((todo, i) =>

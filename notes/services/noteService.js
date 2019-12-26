@@ -5,12 +5,13 @@ import eventBusService from "../../services/eventBusService.js";
 export default {
     getNotes,
     getNoteById,
-    editNoteTxt
+    editNoteTxt,
+    deleteNote
 }
 
 let gNotes = [
     {
-        id:1,
+        id: 1,
         type: "NoteText",
         isPinned: true,
         info: {
@@ -19,7 +20,7 @@ let gNotes = [
         }
     },
     {
-        id:2,
+        id: 2,
         type: "NoteImg",
         info: {
             url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/37/31/3b/mount-kilimanjaro-view.jpg",
@@ -31,7 +32,7 @@ let gNotes = [
         }
     },
     {
-        id:3,
+        id: 3,
         type: "NoteTodos",
         info: {
             title: "To do list",
@@ -42,7 +43,7 @@ let gNotes = [
         }
     },
     {
-        id:4,
+        id: 4,
         type: "NoteText",
         isPinned: true,
         info: {
@@ -51,7 +52,7 @@ let gNotes = [
         }
     },
     {
-        id:5,
+        id: 5,
         type: "NoteImg",
         info: {
             url: "https://qph.fs.quoracdn.net/main-qimg-225232d1b893f689e7d24ad42e6a0de7",
@@ -63,7 +64,7 @@ let gNotes = [
         }
     },
     {
-        id:6,
+        id: 6,
         type: "NoteTodos",
         info: {
             title: "Things to do each day:",
@@ -84,13 +85,19 @@ function getNotes() {
     return Promise.resolve([...gNotes]);
 }
 
-function editNoteTxt(txt,contentType,note) {
+function deleteNote(note) {
+    console.log(note);
+    gNotes = gNotes.filter((currNote) => currNote.id !== note.id);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+}
+
+function editNoteTxt(txt, contentType, note) {
     let copyNote = JSON.parse(JSON.stringify(note));
     copyNote.info[contentType] = txt;
     gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
     storageService.store('notes', gNotes);
     eventBusService.emit('noteChanged');
-
     return Promise.resolve(copyNote);
 }
 
