@@ -53,6 +53,7 @@ body {
     border-radius: 8px;
     box-shadow: 4px 5px 14px 2px rgba(0,0,0,0.25);
     cursor: default;
+    z-index: 2;
 }
 
 .modal-title {
@@ -60,7 +61,7 @@ body {
     margin-top: 10px;
 }
 
-.close{
+.close-Modal{
     font-family: lato-regular;
     position: absolute;
     top: -2px;
