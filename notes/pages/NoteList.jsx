@@ -1,5 +1,6 @@
 import noteService from '../services/noteService.js'
 import NotePreview from '../../notes/cmps/NotePreview.jsx'
+import eventBusService from '../../services/eventBusService.js';
 
 export default class NoteListPage extends React.Component {
     state = {
@@ -7,11 +8,10 @@ export default class NoteListPage extends React.Component {
     }
 
     componentDidMount() {
+        this.eventKiller = eventBusService.on('noteChanged', () => {
+            this.loadNotes()
+        });
         this.loadNotes()
-    }
-
-    componentDidUpdate(){
-        console.log('update')
     }
 
     loadNotes = () => {
@@ -21,7 +21,6 @@ export default class NoteListPage extends React.Component {
     }
 
     render() {
-        console.log(this.state.notes)
         return (
             <section>
                     <div className="notes-container">

@@ -10,10 +10,6 @@ export default class PetDetails extends React.Component {
         this.checkIfForSale();
     }
 
-    componentDidUpdate(prevProps){
-        console.log('prevProps', prevProps);
-    }
-
     setPriceColor = () => {
         let bookPrice = this.props.book.listPrice.amount;
 

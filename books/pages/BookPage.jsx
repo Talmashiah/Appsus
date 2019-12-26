@@ -21,7 +21,6 @@ export default class BookPage extends React.Component {
     loadBook() {
         const { id } = this.props.match.params;
         booksService.getBookById(id).then(book => {
-            console.log('Refresh book:',book)
             this.setState({ book })
         })
     }

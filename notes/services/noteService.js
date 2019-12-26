@@ -1,5 +1,6 @@
 'use strict'
 import storageService from '../../services/storageService.js'
+import eventBusService from "../../services/eventBusService.js";
 
 export default {
     getNotes,
@@ -41,7 +42,7 @@ let gNotes = [
         }
     },
     {
-        id:1,
+        id:4,
         type: "NoteText",
         isPinned: true,
         info: {
@@ -50,7 +51,7 @@ let gNotes = [
         }
     },
     {
-        id:2,
+        id:5,
         type: "NoteImg",
         info: {
             url: "https://qph.fs.quoracdn.net/main-qimg-225232d1b893f689e7d24ad42e6a0de7",
@@ -62,7 +63,7 @@ let gNotes = [
         }
     },
     {
-        id:3,
+        id:6,
         type: "NoteTodos",
         info: {
             title: "Things to do each day:",
@@ -87,7 +88,9 @@ function editNoteTxt(txt,contentType,note) {
     let copyNote = JSON.parse(JSON.stringify(note));
     copyNote.info[contentType] = txt;
     gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
-    storageService.store('emails', gNotes);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+
     return Promise.resolve(copyNote);
 }
 
