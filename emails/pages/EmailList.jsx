@@ -37,7 +37,7 @@ export default class EmailList extends React.Component {
         return (
             <section>
                 <EmailFilter key="1" onSetFilter={this.onSetFilter} />
-                <ul>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail} toggleRead={this.toggleRead}></EmailPreview>)}</ul>
+                <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail} toggleRead={this.toggleRead}></EmailPreview>)}</ul>
             </section>
         )
     }
