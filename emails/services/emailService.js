@@ -264,6 +264,7 @@ export default {
     getEmailById,
     deleteEmail,
     toggleRead,
+    toggleUnRead,
 }
 
 
@@ -303,4 +304,12 @@ function toggleRead(email) {
     storageService.store('emails', gEmails);
     return Promise.resolve(copyEmail);
 
+}
+
+function toggleUnRead(email) {
+    let copyEmail = JSON.parse(JSON.stringify(email))
+    copyEmail.isRead = !copyEmail.isRead;
+    gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
+    storageService.store('emails', gEmails);
+    return Promise.resolve(copyEmail);
 }
