@@ -18,7 +18,7 @@ export default class NotePreview extends React.Component {
             case 'NoteTodos':
                 return <NoteTodos note={note} openModal={this.onOpenModal}></NoteTodos>
             default:
-                return //...some default error view
+                return 
         }
     }
 
