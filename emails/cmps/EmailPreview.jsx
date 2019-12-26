@@ -26,6 +26,14 @@ export default class EmailPreview extends React.Component {
     onToggleUnRead = () => {
         this.props.toggleUnRead(this.props.email);
     }
+
+    onFormatDate = () => {
+        this.props.formatDate(this.props.email.sentAt);
+    }
+    componentDidMount = () =>{
+        this.onFormatDate();
+    }
+
     render() {
         const btnClass = this.state.isHovered ? "delete-button-preview" : "delete-button-preview hidden";
         const btnReadClass = this.state.isHovered ? "mark-read-button" : "mark-read-button hidden";
@@ -40,11 +48,14 @@ export default class EmailPreview extends React.Component {
                             <span className={'preview-body'}> {props.email.body} </span>
                         </span>
                     </li>
+                    <span className={'preview-date'}>{'HERE IS THE PROBLEM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'}</span>
                 </div >
             </Link >
-                <span className={btnClass} key="9" onClick={this.onDeleteEmail}>🗑️ </span>
-                <span className={btnReadClass} key="2" onClick={this.onToggleUnRead}><i class="fas fa-envelope"></i> </span>
+                <span className={btnClass} key="9" data-toggle={'tooltip'} title={'Delete'} onClick={this.onDeleteEmail}><i className={'fas fa-trash'}></i> </span>
+                <span className={btnReadClass} key="2" onClick={this.onToggleUnRead} data-toggle={'tooltip'} title={props.email.isRead ? 'Mark as unread' : 'Mark as read'}>
+                    <i className={props.email.isRead ? 'fas fa-envelope' : 'fas fa-envelope-open'}></i></span>
             </div>
         </div>
     }
 }
+

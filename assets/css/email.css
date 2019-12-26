@@ -5,7 +5,7 @@ html {
     -moz-user-select: none;
     -khtml-user-select: none;
     -ms-user-select: none;
-    outline:none;
+    outline: none;
 }
 
 a {
@@ -16,7 +16,7 @@ a {
 .email-preview-container {
     cursor: pointer;
     padding-top: 10px;
-    background:rgba(146, 145, 145, 0.151);
+    background: rgba(146, 145, 145, 0.151);
     display: flex;
     justify-content: space-between;
     border: 1px solid rgba(112, 111, 111, 0.411);
@@ -34,7 +34,6 @@ a {
     text-align: center;
     display: flex;
 }
-
 
 .email-preview .preview-body {
     padding-left: 5px;
@@ -63,9 +62,8 @@ a {
 }
 
 .bold {
-    background:white;
+    background: white;
     font-weight: 900;
-
 }
 
 .unbold {
@@ -77,6 +75,7 @@ a {
 }
 
 .delete-button-preview {
+    color: gray;
     padding-top: 10px;
     width: 34px;
     height: 28px;
@@ -97,9 +96,11 @@ a {
     background: rgba(168, 168, 170, 0.685);
     width: 34px;
     height: 28px;
+    color: black;
 }
 
 .mark-read-button {
+    color: gray;
     outline: none;
     padding-top: 10px;
     width: 34px;
@@ -119,12 +120,19 @@ a {
 
 .mark-read-button:hover {
     background: rgba(168, 168, 170, 0.685);
+    color: black;
     width: 34px;
     height: 28px;
 }
 
 .hidden {
     display: none;
+}
+
+.preview-date {
+    padding-right:5px;
+    font-size:12px;
+    font-family: cursive;
 }
 
 /* Email List*/
