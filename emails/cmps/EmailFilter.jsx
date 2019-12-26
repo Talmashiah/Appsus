@@ -21,9 +21,9 @@ export default class EmailFilter extends React.Component {
     }
 
     render() {
-        return <div className="search-bar">
-            <input className="search-input" type="text" placeholder="Search Mail" value={this.state.filterBy.name}
-                onChange={this.changeInput} name="name"></input>
+        return <div className="email-list-header">
+            <div className={'search-input-container'}><input className="search-input" type="text" placeholder="Search Mail" value={this.state.filterBy.name}
+                onChange={this.changeInput} name="name"></input></div>
             <div className={'dropdown'}>
                 <button className={'dropbtn'}>Search By</button>
                 <div className={'dropdown-content'}>
@@ -31,6 +31,7 @@ export default class EmailFilter extends React.Component {
                     <option onClick={this.onFilter}>Unread</option>
                     <option onClick={this.onFilter}>Starred</option>
                     <option onClick={this.onFilter}> Unstarred</option>
+                    <option onClick={this.onFilter}>Date</option>
                 </div>
             </div>
         </div>

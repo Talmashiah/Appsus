@@ -1,6 +1,7 @@
 'use strict'
 import storageService from '../../services/storageService.js'
 
+let gIsDateSortedUp = false;
 let gEmails = [
 
     {
@@ -296,6 +297,7 @@ export default {
     toggleRead,
     toggleUnRead,
     toggleStar,
+    gIsDateSortedUp,
 }
 
 
@@ -327,6 +329,22 @@ function getEmails(filterBy) {
     if (filterBy === 'Unstarred') {
         const filteredEmails = gEmails.filter(email => !email.isStarred);
         return Promise.resolve([...filteredEmails]);
+    }
+
+    if (filterBy === 'Date') {
+        if (!gIsDateSortedUp) {
+            gIsDateSortedUp = !gIsDateSortedUp;
+            let copyEmails = JSON.parse(JSON.stringify(gEmails));
+            const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? 1 : -1)
+            return Promise.resolve(sortedEmails);
+        }
+        if (gIsDateSortedUp) {
+            gIsDateSortedUp = !gIsDateSortedUp;
+            let copyEmails = JSON.parse(JSON.stringify(gEmails));
+            const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1)
+            return Promise.resolve(sortedEmails);
+        }
+
     }
 
 

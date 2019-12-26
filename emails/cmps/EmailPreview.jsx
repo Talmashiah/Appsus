@@ -34,10 +34,6 @@ export default class EmailPreview extends React.Component {
         else return new Date(this.props.email.sentAt).toLocaleDateString('en-US');
     }
 
-    onExpandMail = () => {
-        window.location.href = `index.html#/emailApp/email/${this.props.email.id}`;
-    }
-
     onToggleStar = () => {
         this.props.toggleStar(this.props.email);
     }
@@ -63,7 +59,7 @@ export default class EmailPreview extends React.Component {
             </Link >
                 <span onClick={this.onToggleStar} data-toggle={'tooltip'} title={props.email.isStarred ? 'Starred' : 'Not starred'} className={props.email.isStarred ? 'starred' : 'not-starred'}><i className={props.email.isStarred ? 'fas fa-star' : 'far fa-star'}></i></span>
                 <span className={btnClass} key="9" data-toggle={'tooltip'} title={'Delete'} onClick={this.onDeleteEmail}><i className={'fas fa-trash'}></i> </span>
-                <span className={btnOpenClass} key="90" data-toggle={'tooltip'} title={'Open'} onClick={this.onExpandMail}><i className={'fas fa-expand'}></i> </span>
+                <Link to={`/emailApp/email/${props.email.id}`}>  <span className={btnOpenClass} key="90" data-toggle={'tooltip'} title={'Open'}><i className={'fas fa-expand'}></i> </span></Link>
                 <span className={btnReadClass} key="2" onClick={this.onToggleUnRead} data-toggle={'tooltip'} title={props.email.isRead ? 'Mark as unread' : 'Mark as read'}>
                     <i className={props.email.isRead ? 'fas fa-envelope' : 'fas fa-envelope-open'}></i></span>
             </div>
