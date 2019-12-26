@@ -210,3 +210,15 @@ a {
     margin-right: 100px;
     border-radius: 10px;
 }
+
+/* Email Page */
+
+.email-page-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+    margin-top: 90px;
+    margin-left: 150px;
+    margin-right: 20px;
+    max-width: 80vw;
+}

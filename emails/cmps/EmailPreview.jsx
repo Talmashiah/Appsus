@@ -49,7 +49,7 @@ export default class EmailPreview extends React.Component {
         const btnReadClass = this.state.isHovered ? "mark-read-button" : "mark-read-button hidden";
         const { props } = this;
         return <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
-            <div className="preview-container"><Link onClick={this.onToggleRead} to={`/emailApp/email/${props.email.id}`}>
+            <div className={'preview-container'}><Link onClick={this.onToggleRead} to={`/emailApp/email/${props.email.id}`}>
                 <div className={props.email.isRead ? 'email-preview-container unbold' : 'email-preview-container bold'}>
                     <li className={'email-preview'}>
                         <span className={'from-preview'}> {props.email.from}</span>
