@@ -3,7 +3,8 @@ import storageService from '../../services/storageService.js'
 
 export default {
     getNotes,
-    getNoteById
+    getNoteById,
+    editNoteTxt
 }
 
 let gNotes = [
@@ -80,6 +81,14 @@ function getNotes() {
         storageService.store('notes', gNotes);
     }
     return Promise.resolve([...gNotes]);
+}
+
+function editNoteTxt(txt,contentType,note) {
+    let copyNote = JSON.parse(JSON.stringify(note));
+    copyNote.info[contentType] = txt;
+    gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
+    storageService.store('emails', gNotes);
+    return Promise.resolve(copyNote);
 }
 
 function getNoteById(NoteId) {

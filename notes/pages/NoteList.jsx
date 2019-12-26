@@ -8,7 +8,10 @@ export default class NoteListPage extends React.Component {
 
     componentDidMount() {
         this.loadNotes()
+    }
 
+    componentDidUpdate(){
+        console.log('update')
     }
 
     loadNotes = () => {

@@ -2,6 +2,7 @@ import eventBusService from "../../services/eventBusService.js";
 import NoteTextModal from '../../notes/cmps/NoteTextModal.jsx';
 import NoteImgModal from '../../notes/cmps/NoteImgModal.jsx';
 import NoteTodosModal from '../../notes/cmps/NoteTodosModal.jsx'
+import noteService from '../../notes/services/noteService.js'
 
 export default class NoteModal extends React.Component {
     eventKiller = null;
@@ -22,11 +23,18 @@ export default class NoteModal extends React.Component {
         this.setState({ display: false })
     }
 
+    editTxtNote = (txt,contentType) => {
+        noteService.editNoteTxt(txt,contentType,this.state.note).then(note=>{
+            this.setState({ note });
+        })
+        this.componentDidMount()
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
 
             case 'NoteText':
-                return <NoteTextModal note={note} onCloseModal={this.closeModal}></NoteTextModal>
+                return <NoteTextModal note={note} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote}></NoteTextModal>
             case 'NoteImg':
                 return <NoteImgModal note={note} onCloseModal={this.closeModal}></NoteImgModal>
             case 'NoteTodos':
@@ -38,6 +46,7 @@ export default class NoteModal extends React.Component {
     }
 
     render() {
+        console.log(this.state.note)
         if (!this.state.display) return null;
         return <div>{this.DynamicCmp(this.state.note)}</div>
     }
