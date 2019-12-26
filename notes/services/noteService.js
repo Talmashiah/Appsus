@@ -12,8 +12,8 @@ let gNotes = [
         type: "NoteText",
         isPinned: true,
         info: {
-            title: "Im a nice title",
-            txt: "yo yo yo this is the text baby!"
+            title: "You can Do this!",
+            txt: "Do not be afraid of fear"
         }
     },
     {
@@ -21,7 +21,7 @@ let gNotes = [
         type: "NoteImg",
         info: {
             url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/37/31/3b/mount-kilimanjaro-view.jpg",
-            title: "Nice View from Berlin",
+            title: "Nice view from the kilimanjaro",
             txt: "That trip was fucking amazing!"
         },
         style: {
@@ -32,10 +32,42 @@ let gNotes = [
         id:3,
         type: "NoteTodos",
         info: {
-            title: "How was it:",
+            title: "To do list",
             todos: [
-                { txt: "Do that", doneAt: null, isDone: false },
-                { txt: "Do this", doneAt: 187111111, isDone: true }
+                { txt: "Go buy some milk", doneAt: 1577232800513, isDone: false },
+                { txt: "Visit your grandma", doneAt: 1577289500513, isDone: true }
+            ]
+        }
+    },
+    {
+        id:1,
+        type: "NoteText",
+        isPinned: true,
+        info: {
+            title: "Credit card pin code:",
+            txt: "5792"
+        }
+    },
+    {
+        id:2,
+        type: "NoteImg",
+        info: {
+            url: "https://qph.fs.quoracdn.net/main-qimg-225232d1b893f689e7d24ad42e6a0de7",
+            title: "Itachi and Sasuke",
+            txt: "Best moment in naruto"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        id:3,
+        type: "NoteTodos",
+        info: {
+            title: "Things to do each day:",
+            todos: [
+                { txt: "Eat a Banana", doneAt: 1577289800513, isDone: false },
+                { txt: "Go to the gym", doneAt: 1577281200513, isDone: true }
             ]
         }
     }
@@ -47,9 +79,6 @@ function getNotes() {
     } else {
         storageService.store('notes', gNotes);
     }
-    // if (!filterBy) return Promise.resolve([...gEmails]);
-    // const filteredEmails = gBooks.filter(book => book.title.includes(filterBy.name)
-    //     && book.listPrice.amount < filterBy.price);
     return Promise.resolve([...gNotes]);
 }
 
