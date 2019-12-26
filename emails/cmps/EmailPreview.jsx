@@ -27,15 +27,25 @@ export default class EmailPreview extends React.Component {
         this.props.toggleUnRead(this.props.email);
     }
 
-    onFormatDate = () => {
-        this.props.formatDate(this.props.email.sentAt);
+    onSetDateFormat = () => {
+        if (Date.now() - this.props.email.sentAt <= 60000) return 'minute ago';
+        if (Date.now() - this.props.email.sentAt <= 3600000) return 'hour ago';
+        if (Date.now() - this.props.email.sentAt <= 86400000) return new Date(this.props.email.sentAt).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+        else return new Date(this.props.email.sentAt).toLocaleDateString('en-US');
     }
-    componentDidMount = () =>{
-        this.onFormatDate();
+
+    onExpandMail = () => {
+        window.location.href = `index.html#/emailApp/email/${this.props.email.id}`;
     }
+
+    onToggleStar = () => {
+        this.props.toggleStar(this.props.email);
+    }
+
 
     render() {
         const btnClass = this.state.isHovered ? "delete-button-preview" : "delete-button-preview hidden";
+        const btnOpenClass = this.state.isHovered ? "open-button-preview" : "open-button-preview hidden";
         const btnReadClass = this.state.isHovered ? "mark-read-button" : "mark-read-button hidden";
         const { props } = this;
         return <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
@@ -48,14 +58,16 @@ export default class EmailPreview extends React.Component {
                             <span className={'preview-body'}> {props.email.body} </span>
                         </span>
                     </li>
-                    <span className={'preview-date'}>{new Date(props.email.sentAt).toLocaleString()}</span>
+                    <span className={this.state.isHovered ? 'preview-date hidden' : 'preview-date'}>{this.onSetDateFormat()}</span>
                 </div >
             </Link >
+                <span onClick={this.onToggleStar} data-toggle={'tooltip'} title={props.email.isStarred ? 'Starred' : 'Not starred'} className={props.email.isStarred ? 'starred' : 'not-starred'}><i className={props.email.isStarred ? 'fas fa-star' : 'far fa-star'}></i></span>
                 <span className={btnClass} key="9" data-toggle={'tooltip'} title={'Delete'} onClick={this.onDeleteEmail}><i className={'fas fa-trash'}></i> </span>
+                <span className={btnOpenClass} key="90" data-toggle={'tooltip'} title={'Open'} onClick={this.onExpandMail}><i className={'fas fa-expand'}></i> </span>
                 <span className={btnReadClass} key="2" onClick={this.onToggleUnRead} data-toggle={'tooltip'} title={props.email.isRead ? 'Mark as unread' : 'Mark as read'}>
                     <i className={props.email.isRead ? 'fas fa-envelope' : 'fas fa-envelope-open'}></i></span>
             </div>
-        </div>
+        </div >
     }
 }
 

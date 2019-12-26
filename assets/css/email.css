@@ -38,7 +38,7 @@ a {
 .email-preview .preview-body {
     padding-left: 5px;
     font-weight: 100;
-    max-width: 390px;
+    max-width: 360px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -53,8 +53,49 @@ a {
 }
 
 .from-preview {
+    padding-left: 35px;
     text-align: left;
     min-width: 200px;
+}
+
+.starred {
+    color: gold;
+    padding-top: 7px;
+    width: 30px;
+    height: 22px;
+    font-size: 14px;
+    border-radius: 55%;
+    float: left;
+    display: block;
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 172px;
+    cursor: pointer;
+    text-align: center;
+    left: 0;
+    transition: ease all .5s;
+}
+
+.not-starred {
+    color: rgba(128, 128, 128, 0.596);
+    padding-top: 7px;
+    width: 30px;
+    height: 22px;
+    font-size: 14px;
+    border-radius: 55%;
+    float: left;
+    display: block;
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 172px;
+    cursor: pointer;
+    text-align: center;
+    left: 0;
+    transition: ease all .5s;
+}
+
+.not-starred:hover, .starred:hover {
+    background: rgba(168, 168, 170, 0.685);
 }
 
 .form- button {
@@ -76,16 +117,16 @@ a {
 
 .delete-button-preview {
     color: gray;
-    padding-top: 10px;
+    padding-top: 9px;
     width: 34px;
-    height: 28px;
+    height: 23px;
     font-size: 14px;
     border-radius: 55%;
     float: right;
     display: block;
     position: absolute;
-    margin-top: -39px;
-    margin-right: 115px;
+    margin-top: -36px;
+    margin-right: 105px;
     cursor: pointer;
     text-align: center;
     right: 0;
@@ -95,23 +136,23 @@ a {
 .delete-button-preview:hover {
     background: rgba(168, 168, 170, 0.685);
     width: 34px;
-    height: 28px;
+    height: 23px;
     color: black;
 }
 
 .mark-read-button {
     color: gray;
     outline: none;
-    padding-top: 10px;
+    padding-top: 9px;
     width: 34px;
-    height: 28px;
+    height: 23px;
     font-size: 14px;
     border-radius: 55%;
     float: right;
     display: block;
     position: absolute;
-    margin-top: -39px;
-    margin-right: 152px;
+    margin-top: -36px;
+    margin-right: 142px;
     cursor: pointer;
     text-align: center;
     right: 0;
@@ -122,7 +163,33 @@ a {
     background: rgba(168, 168, 170, 0.685);
     color: black;
     width: 34px;
-    height: 28px;
+    height: 23px;
+}
+
+.open-button-preview {
+    color: gray;
+    outline: none;
+    padding-top: 10px;
+    width: 34px;
+    height: 23px;
+    font-size: 14px;
+    border-radius: 55%;
+    float: right;
+    display: block;
+    position: absolute;
+    margin-top: -36px;
+    margin-right: 179px;
+    cursor: pointer;
+    text-align: center;
+    right: 0;
+    transition: ease all .5s;
+}
+
+.open-button-preview:hover {
+    background: rgba(168, 168, 170, 0.685);
+    color: black;
+    width: 34px;
+    height: 23px;
 }
 
 .hidden {
@@ -130,8 +197,8 @@ a {
 }
 
 .preview-date {
-    padding-right:5px;
-    font-size:12px;
+    padding-right: 5px;
+    font-size: 12px;
     font-family: cursive;
 }
 
