@@ -1,4 +1,5 @@
 import eventBusService from "../../services/eventBusService.js";
+import NoteTextModal from '../../notes/cmps/NoteTextModal.jsx';
 
 export default class NoteModal extends React.Component {
     eventKiller = null;
@@ -16,11 +17,14 @@ export default class NoteModal extends React.Component {
         this.eventKiller && this.eventKiller();
     }
 
+    closeModal = () => {
+        this.setState({ display: false })
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
             case 'NoteText':
-                return <h1>NoteText</h1>
-                // <NoteTextModal note={note}></NoteTextModal>
+                return <NoteTextModal note={note} onCloseModal={this.closeModal}></NoteTextModal>
             case 'NoteImg':
                 return <h1>NoteImg</h1>
                 // <NoteImgModal note={note}></NoteImgModal>

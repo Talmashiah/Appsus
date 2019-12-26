@@ -1,3 +1,17 @@
+
+/*general*/
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+}
+
+
+/* notes */
+
 .note-container{
     width:240px;
     border:solid 1px lightgrey;
@@ -12,4 +26,53 @@
 
 .todo-done{
     text-decoration: line-through;
+}
+
+
+/* modal */
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.07);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.modal .inner-container {
+    padding: 25px;
+    position: absolute;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    background-color: #fff;
+    left: calc(50% - 250px);
+    top: calc(50% - 250px);
+    opacity: 1;
+    border-radius: 8px;
+    box-shadow: 4px 5px 14px 2px rgba(0,0,0,0.25);
+    cursor: default;
+}
+
+.modal-title {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.close{
+    font-family: lato-regular;
+    position: absolute;
+    top: -2px;
+    right: -1px;
+    cursor: pointer;
+    font-size: 25px;
+    padding: 7px 15px;
+    transform: rotate(360deg);
+}
+
+.close:hover{
+    color: #313131;
+    transform: rotate(0);
+    transition: 0.6s;
 }
