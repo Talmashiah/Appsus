@@ -9,8 +9,19 @@ export default class NoteTextModal extends React.Component {
         this.props.editTxtNote(editedTxt, contentType);
     }
 
+    onTodoTxtChange = (editedTxt, todo) => {
+        this.props.editTodoTxtNote(editedTxt, todo);
+    }
+
     onToggleTodo = (todo) => {
         this.props.toggleTodo(todo);
+    }
+
+    onSetDateFormat = (todoTime) => {
+        if (Date.now() - todoTime <= 60000) return 'minute ago';
+        if (Date.now() - todoTime <= 3600000) return 'hour ago';
+        if (Date.now() - todoTime <= 86400000) return new Date(todoTime).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+        else return new Date(todoTime).toLocaleDateString('en-US');
     }
 
     render() {
@@ -23,10 +34,10 @@ export default class NoteTextModal extends React.Component {
                     {props.note.info.todos.map((todo, i) =>
                         <li key={i}>
                             <input type="checkbox" onClick={() => this.onToggleTodo(todo)}></input>
-                            <span className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTxtChange(e.target.textContent, 'txt')}>
-                                {todo.txt} 
+                            <span className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTodoTxtChange(e.target.textContent, todo)}>
+                                {todo.txt}
                             </span>
-                            <span> - {new Date(todo.doneAt).toLocaleString()}</span> 
+                            <span> - {this.onSetDateFormat(todo.doneAt)}</span>
                         </li>)}
                 </ul>
             </div>

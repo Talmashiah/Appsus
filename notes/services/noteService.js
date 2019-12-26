@@ -7,7 +7,8 @@ export default {
     getNoteById,
     editNoteTxt,
     deleteNote,
-    toggleTodoStatus
+    toggleTodoStatus,
+    editTodoTxt
 }
 
 let gNotes = [
@@ -38,8 +39,8 @@ let gNotes = [
         info: {
             title: "To do list",
             todos: [
-                { id: 1, txt: "Go buy some milk", doneAt: 1577232800513, isDone: false },
-                { id: 2, txt: "Visit your grandma", doneAt: 1577289500513, isDone: true }
+                { id: 1, txt: "Go buy some milk", doneAt: Date.now() - 1000000, isDone: false },
+                { id: 2, txt: "Visit your grandma", doneAt: Date.now() - 1000, isDone: true }
             ]
         }
     },
@@ -70,7 +71,7 @@ let gNotes = [
         info: {
             title: "Things to do each day:",
             todos: [
-                { id: 1, txt: "Eat a Banana", doneAt: 1577289800513, isDone: false },
+                { id: 1, txt: "Eat a Banana", doneAt: Date.now() - 10000489, isDone: false },
                 { id: 2, txt: "Go to the gym", doneAt: 1577281200513, isDone: true }
             ]
         }
@@ -105,6 +106,16 @@ function editNoteTxt(txt, contentType, note) {
 function toggleTodoStatus(note, todo) {
     let copyNote = JSON.parse(JSON.stringify(note));
     todo.isDone = !todo.isDone;
+    copyNote.info.todos = copyNote.info.todos.map(currTodo => currTodo.id === todo.id ? todo : currTodo);
+    gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+    return Promise.resolve(copyNote);
+}
+
+function editTodoTxt (txt,todo,note){
+    let copyNote = JSON.parse(JSON.stringify(note));
+    todo.txt = txt;
     copyNote.info.todos = copyNote.info.todos.map(currTodo => currTodo.id === todo.id ? todo : currTodo);
     gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
     storageService.store('notes', gNotes);

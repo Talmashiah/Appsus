@@ -5,6 +5,13 @@ export default class NoteTodos extends React.Component {
         this.props.openModal(this.props.note);
     }
 
+    onSetDateFormat = (todoTime) => {
+        if (Date.now() - todoTime <= 60000) return 'minute ago';
+        if (Date.now() - todoTime <= 3600000) return 'hour ago';
+        if (Date.now() - todoTime <= 86400000) return new Date(todoTime).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+        else return new Date(todoTime).toLocaleDateString('en-US');
+    }
+
     render() {
         const { props } = this;
         return <div onClick={this.handleClick}>
@@ -12,7 +19,7 @@ export default class NoteTodos extends React.Component {
             <ul>
                 {props.note.info.todos.map((todo, i) =>
                     <li key={i}>
-                        <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt} - {new Date(todo.doneAt).toLocaleString()}</span>
+                        <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt} - {this.onSetDateFormat(todo.doneAt)}</span>
                     </li>)}
             </ul>
         </div>
