@@ -9,6 +9,10 @@ export default class NoteTextModal extends React.Component {
         this.props.editTxtNote(editedTxt, contentType);
     }
 
+    onToggleTodo = (todo) => {
+        this.props.toggleTodo(todo);
+    }
+
     render() {
         const { props } = this;
         return <div className="modal" onClick={this.handleCloseModal}>
@@ -18,7 +22,11 @@ export default class NoteTextModal extends React.Component {
                 <ul>
                     {props.note.info.todos.map((todo, i) =>
                         <li key={i}>
-                            <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt} - {new Date(todo.doneAt).toLocaleString()}</span>
+                            <input type="checkbox" onClick={() => this.onToggleTodo(todo)}></input>
+                            <span className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTxtChange(e.target.textContent, 'txt')}>
+                                {todo.txt} 
+                            </span>
+                            <span> - {new Date(todo.doneAt).toLocaleString()}</span> 
                         </li>)}
                 </ul>
             </div>
