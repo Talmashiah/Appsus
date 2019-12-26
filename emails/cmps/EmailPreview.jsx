@@ -48,7 +48,7 @@ export default class EmailPreview extends React.Component {
                             <span className={'preview-body'}> {props.email.body} </span>
                         </span>
                     </li>
-                    <span className={'preview-date'}>{'HERE IS THE PROBLEM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'}</span>
+                    <span className={'preview-date'}>{new Date(props.email.sentAt).toLocaleString()}</span>
                 </div >
             </Link >
                 <span className={btnClass} key="9" data-toggle={'tooltip'} title={'Delete'} onClick={this.onDeleteEmail}><i className={'fas fa-trash'}></i> </span>
