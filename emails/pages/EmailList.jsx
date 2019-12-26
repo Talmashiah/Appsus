@@ -19,7 +19,7 @@ export default class EmailList extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, this.loadEmails());
+        this.setState({ filterBy }, ()=>this.loadEmails());
     }
 
     deleteEmail = (email) => {

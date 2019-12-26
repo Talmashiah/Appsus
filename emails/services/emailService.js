@@ -307,6 +307,32 @@ function getEmails(filterBy) {
         storageService.store('emails', gEmails);
     }
     if (!filterBy) return Promise.resolve([...gEmails]);
+
+    if (filterBy === 'Read') {
+        console.log('read');
+        const filteredEmails = gEmails.filter(email => email.isRead);
+        return Promise.resolve([...filteredEmails]);
+    }
+
+    if (filterBy === 'Unread') {
+        const filteredEmails = gEmails.filter(email => !email.isRead);
+        return Promise.resolve([...filteredEmails]);
+    }
+
+    if (filterBy === 'Starred') {
+        const filteredEmails = gEmails.filter(email => email.isStarred);
+        return Promise.resolve([...filteredEmails]);
+    }
+
+    if (filterBy === 'Unstarred') {
+        const filteredEmails = gEmails.filter(email => !email.isStarred);
+        return Promise.resolve([...filteredEmails]);
+    }
+
+
+
+
+
     const filteredEmails = gEmails.filter(email => email.subject.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.body.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.from.toLowerCase().includes(filterBy.name.toLowerCase()));
