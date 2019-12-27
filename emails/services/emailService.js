@@ -301,6 +301,7 @@ export default {
     gIsDateSortedUp,
     getRandomId,
     sendEmail,
+    unreadMailCount,
 }
 
 
@@ -320,7 +321,6 @@ function getEmails(filterBy) {
     if (filterBy === 'All') return Promise.resolve([...gEmails]);
 
     if (filterBy === 'Read') {
-        console.log('read');
         const filteredEmails = gEmails.filter(email => email.isRead);
         return Promise.resolve([...filteredEmails]);
     }
@@ -416,4 +416,9 @@ function sendEmail(email) {
     storageService.store('emails', gEmails);
     eventBusService.emit('emailAdded');
     return Promise.resolve(gEmails);
+}
+
+function unreadMailCount() {
+    let count = gEmails.filter(function (email) { return !email.isRead; }).length;
+    return count;
 }
