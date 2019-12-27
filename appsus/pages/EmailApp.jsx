@@ -1,5 +1,6 @@
 import EmailList from '../../emails/pages/EmailList.jsx'
 import EmailPage from '../../emails/pages/EmailPage.jsx'
+import ComposeModal from '../../emails/cmps/ComposeModal.jsx'
 
 
 const Router = ReactRouterDOM.HashRouter
@@ -13,6 +14,7 @@ export default class EmailApp extends React.Component {
         return (
             <main>
                 <Router history={history}>
+                    <ComposeModal></ComposeModal>
                     <Switch>
                         <Route component={EmailList} path="/emailApp" exact />
                         <Route component={EmailPage} path="/emailApp/email/:id" exact />

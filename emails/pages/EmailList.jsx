@@ -1,6 +1,9 @@
 import emailsService from '../services/emailService.js'
 import EmailFilter from '../cmps/EmailFilter.jsx'
 import EmailPreview from '../cmps/EmailPreview.jsx'
+import EmailSideBar from '../cmps/EmailSideBar.jsx'
+import eventBusService from '../../services/eventBusService.js';
+
 export default class EmailList extends React.Component {
     state = {
         emails: [],
@@ -8,6 +11,9 @@ export default class EmailList extends React.Component {
     }
 
     componentDidMount() {
+        this.eventKiller = eventBusService.on('emailAdded', () => {
+            this.loadEmails()
+        });
         this.loadEmails();
 
     }
@@ -24,6 +30,7 @@ export default class EmailList extends React.Component {
 
     deleteEmail = (email) => {
         emailsService.deleteEmail(email);
+        this.setState({ filterBy: null });
         this.loadEmails();
         this.props.history.push('/emailApp');
     }
@@ -47,7 +54,8 @@ export default class EmailList extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className={'app-body'}>
+                <EmailSideBar></EmailSideBar>
                 <EmailFilter className={'email-filter'} key="1" onSetFilter={this.onSetFilter} />
                 <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail}
                     toggleRead={this.toggleRead} toggleUnRead={this.toggleUnRead} toggleStar={this.toggleStar}>

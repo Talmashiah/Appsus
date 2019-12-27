@@ -212,15 +212,40 @@ a {
     border-radius: 10px;
 }
 
+.side-bar {
+    left: 0;
+    height: 100vh;
+    position: fixed;
+    width: 170px;
+    background: rgba(255, 255, 255, 0.226);
+}
+
+.compose-button {
+    margin-top: 6px;
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
 /* Email Page */
 
 .email-page-container {
+    margin-top: 70px;
     text-align: center;
     padding: 20px;
     border: 1px solid black;
     margin-left: 170px;
-    margin-right: 100px;
+    margin-right: 101px;
     max-width: 80vw;
+    height: 80vh;
+    background: lavender;
+}
+
+.email-page-container button {
+    cursor: pointer;
 }
 
 /* Filter */
@@ -288,7 +313,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background: lavender;
+    background: white;
     margin-left: 170px;
     margin-right: 100px;
     border: 1px solid black;
@@ -337,8 +362,94 @@ a {
     margin-top: 70px;
 }
 
-
 /* notes */
-.notes-container{
-    margin-top:70px;
+
+.notes-container {
+    margin-top: 70px;
+}
+
+/* app body */
+
+.app-body {
+    background: lavender;
+}
+
+/* Compose Modal */
+
+.form-container {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 100px;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 99999;
+    margin-top: 50px;
+    display: block;
+    width: 570px;
+    height: 520px;
+    background: white;
+}
+
+.form-container input {
+    color: black;
+    width: calc(100% - 10px);
+    height: 25px;
+    margin: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.form-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+    padding-top: 15px;
+    text-align: left;
+    width: calc(100% - 20px);
+    height: 30px;
+    background: rgb(44, 43, 43);
+    color: rgb(255, 255, 255);
+}
+
+.form-container .email-input-txt {
+    padding: 5px;
+    width: calc(100% - 100px);
+    text-align: top;
+    height: 100%;
+    outline: none;
+    border: none;
+}
+
+.form-container button {
+    outline: none;
+}
+
+.close-btn-compose {
+    cursor: pointer;
+    float: right;
+    color: rgb(189, 182, 182);
+}
+
+.submit-compose {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    height: 35px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border-radius: 7px;
+    border: 1px solid black;
+    transition: all ease 0.4s;
+}
+
+.submit-compose:hover {
+    background: rgb(32, 32, 32);
 }

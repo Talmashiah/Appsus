@@ -1,4 +1,5 @@
 import emailsService from '../services/emailService.js';
+import EmailSideBar from '../cmps/EmailSideBar.jsx';
 
 export default class EmailPage extends React.Component {
     state = {
@@ -21,20 +22,24 @@ export default class EmailPage extends React.Component {
         this.props.history.push('/emailApp');
     }
 
-    onDelete = () =>{
+    onDelete = () => {
         emailsService.deleteEmail(this.state.email);
         this.props.history.push('/emailApp');
+        this.setState({ email: null });
     }
 
     render() {
         if (!this.state.email) return <div>Loading...</div>
-        return <div className={'email-page-container'}>
-            <h1>{this.state.email.from}</h1>
-            <h2>{this.state.email.subject}</h2>
-            <p>{this.state.email.body}</p>
-            <button onClick={this.goBack}>GO BACK</button>
-            <button onClick={this.onDelete}>Delete</button>
-        </div>
+        return [
+            <EmailSideBar key="s"></EmailSideBar>,
+            , <div key="g" className={'email-page-container'}>
+                <h1>{this.state.email.from}</h1>
+                <h2>{this.state.email.subject}</h2>
+                <p>{this.state.email.body}</p>
+                <button onClick={this.goBack}>GO BACK</button>
+                <button onClick={this.onDelete}>Delete</button>
+            </div>
+        ]
 
     }
 }

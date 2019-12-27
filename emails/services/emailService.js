@@ -1,5 +1,6 @@
 'use strict'
 import storageService from '../../services/storageService.js'
+import eventBusService from "../../services/eventBusService.js";
 
 let gIsDateSortedUp = false;
 let gEmails = [
@@ -298,6 +299,8 @@ export default {
     toggleUnRead,
     toggleStar,
     gIsDateSortedUp,
+    getRandomId,
+    sendEmail,
 }
 
 
@@ -308,7 +311,13 @@ function getEmails(filterBy) {
     } else {
         storageService.store('emails', gEmails);
     }
-    if (!filterBy || filterBy === 'All') return Promise.resolve([...gEmails]);
+
+    if (!filterBy) {
+        let copyEmails = JSON.parse(JSON.stringify(gEmails));
+        const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1)
+        return Promise.resolve(sortedEmails);
+    }
+    if (filterBy === 'All') return Promise.resolve([...gEmails]);
 
     if (filterBy === 'Read') {
         console.log('read');
@@ -397,3 +406,14 @@ function toggleStar(email) {
     return Promise.resolve(copyEmail);
 }
 
+
+function getRandomId(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function sendEmail(email) {
+    gEmails.push(email);
+    storageService.store('emails', gEmails);
+    eventBusService.emit('emailAdded');
+    return Promise.resolve(gEmails);
+}
