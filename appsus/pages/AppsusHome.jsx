@@ -4,8 +4,8 @@ export default class AppsusHome extends React.Component {
 
     render() {
         return (
-            <section>
-                    <div>Appsus Home</div>
+            <section className={'apsus-home'}>
+                <div>Appsus Home</div>
             </section>
         )
     }

@@ -27,6 +27,7 @@ export default class EmailFilter extends React.Component {
             <div className={'dropdown'}>
                 <button className={'dropbtn'}>Search By</button>
                 <div className={'dropdown-content'}>
+                    <option onClick={this.onFilter}>All</option>
                     <option onClick={this.onFilter}>Read</option>
                     <option onClick={this.onFilter}>Unread</option>
                     <option onClick={this.onFilter}>Starred</option>

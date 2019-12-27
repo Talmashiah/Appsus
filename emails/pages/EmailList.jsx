@@ -19,7 +19,7 @@ export default class EmailList extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy }, ()=>this.loadEmails());
+        this.setState({ filterBy }, () => this.loadEmails());
     }
 
     deleteEmail = (email) => {
@@ -48,7 +48,7 @@ export default class EmailList extends React.Component {
     render() {
         return (
             <section>
-                <EmailFilter key="1" onSetFilter={this.onSetFilter} />
+                <EmailFilter className={'email-filter'} key="1" onSetFilter={this.onSetFilter} />
                 <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail}
                     toggleRead={this.toggleRead} toggleUnRead={this.toggleUnRead} toggleStar={this.toggleStar}>
                 </EmailPreview>)}</ul>

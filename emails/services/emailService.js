@@ -308,7 +308,7 @@ function getEmails(filterBy) {
     } else {
         storageService.store('emails', gEmails);
     }
-    if (!filterBy) return Promise.resolve([...gEmails]);
+    if (!filterBy || filterBy === 'All') return Promise.resolve([...gEmails]);
 
     if (filterBy === 'Read') {
         console.log('read');
