@@ -221,13 +221,105 @@ a {
 }
 
 .compose-button {
-    margin-top: 6px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
     margin-left: 10px;
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
+    width: 140px;
+    height: 50px;
+    border-radius: 25px;
     outline: none;
     cursor: pointer;
+    background: white;
+    border: 1px solid white;
+    font-size: 15px;
+    transition: all ease .4s;
+    box-shadow: rgb(196, 194, 194) .1px .4px .4px .4px;
+}
+
+.compose-button:hover {
+    background: rgb(250, 253, 251);
+    box-shadow: rgb(196, 194, 194) .1px 1px .4px 1px;
+}
+
+.fa-plus {
+    background: -webkit-linear-gradient(#e66465, #9198e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 8px;
+    margin-right: -4px;
+    font-size: 29px;
+}
+
+.inbox-container {
+    justify-content: space-evenly;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 13px;
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    margin-left: -10px;
+}
+
+.inbox-container-star {
+    justify-content: space-between;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2px;
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    margin-left: -10px;
+}
+
+.starred-inbox {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 57px;
+}
+
+.inbox-container-star .fa-star {
+    font-weight: bold;
+    margin-left: 27px;
+}
+
+.inbox-container-star:hover {
+    background: rgba(250, 249, 249, 0.493);
+}
+
+.inbox-container:hover {
+    background: rgba(250, 249, 249, 0.493);
+}
+
+.unread-mail {
+    margin-right: -17px;
+}
+
+.unread-mail:after {
+    content: ')';
+}
+
+.unread-mail:before {
+    content: '(';
 }
 
 /* Email Page */
@@ -371,7 +463,7 @@ a {
 /* app body */
 
 .app-body {
-    background: lavender;
+    background: rgb(164, 164, 238);
 }
 
 /* Compose Modal */
@@ -440,6 +532,7 @@ a {
     left: 0;
     width: 90px;
     height: 35px;
+    font-weight: 700;
     background: black;
     color: white;
     cursor: pointer;
@@ -452,4 +545,14 @@ a {
 
 .submit-compose:hover {
     background: rgb(32, 32, 32);
+}
+
+.fa-times:hover {
+    text-align: center;
+    color: white;
+    transition: all ease .4s;
+}
+
+.fa-times {
+    text-align: center;
 }
