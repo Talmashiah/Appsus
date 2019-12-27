@@ -217,7 +217,8 @@ a {
     height: 100vh;
     position: fixed;
     width: 170px;
-    background: rgba(255, 255, 255, 0.226);
+    /* background: rgba(255, 255, 255, 0.226); */
+    background: gray;
 }
 
 .compose-button {
@@ -365,7 +366,7 @@ a {
     margin-right: 101px;
     max-width: 80vw;
     height: 80vh;
-    background: lavender;
+    background: white;
 }
 
 .email-page-container button {
@@ -429,7 +430,7 @@ a {
     height: 28px;
     border-radius: 10px;
     margin-left: 16px;
-    cursor: pointer;
+    cursor: text;
 }
 
 .email-list-header {
@@ -474,8 +475,6 @@ a {
     height: 15px;
 }
 
-/* books */
-
 .search-bar {
     margin-top: 70px;
 }
@@ -486,11 +485,9 @@ a {
     margin-top: 70px;
 }
 
-/* app body */
-
 html {
+    background: #fff;
     height: 100vh;
-    background: rgb(164, 164, 238);
 }
 
 /* Compose Modal */

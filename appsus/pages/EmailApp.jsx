@@ -12,7 +12,7 @@ export default class EmailApp extends React.Component {
 
     render() {
         return (
-            <main>
+            <main className="email-body">
                 <Router history={history}>
                     <ComposeModal></ComposeModal>
                     <Switch>
