@@ -41,6 +41,12 @@ export default class NoteModal extends React.Component {
         })
     }
 
+    addTodo = () => {
+        noteService.addNoteTodo(this.state.note).then(note => {
+            this.setState({ note });
+        })
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
 
@@ -49,7 +55,7 @@ export default class NoteModal extends React.Component {
             case 'NoteImg':
                 return <NoteImgModal note={note} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote}></NoteImgModal>
             case 'NoteTodos':
-                return <NoteTodosModal note={note} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote} editTodoTxtNote={this.editTodoTxtNote} toggleTodo={this.toggleTodo}></NoteTodosModal>
+                return <NoteTodosModal note={note} onAddTodo={this.addTodo} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote} editTodoTxtNote={this.editTodoTxtNote} toggleTodo={this.toggleTodo}></NoteTodosModal>
 
             default:
                 return

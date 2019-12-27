@@ -8,6 +8,10 @@ body {
 
 /* notes */
 
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+
 .notes-container{
     box-sizing: border-box;
 }
@@ -79,8 +83,7 @@ body {
     transition: 0.6s;
 }
 
-.inner-container .note-img{
-    width: 100%;
+.inner-container .note-img-modal{
     border-radius: 5px;
     height: 400px;
 }

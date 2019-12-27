@@ -24,22 +24,27 @@ export default class NoteTextModal extends React.Component {
         else return new Date(todoTime).toLocaleDateString('en-US');
     }
 
+    onAddTodo = () => {
+        this.props.onAddTodo()
+    }
+
     render() {
         const { props } = this;
         return <div className="modal" onClick={this.handleCloseModal}>
             <div className="inner-container" onClick={(ev) => ev.stopPropagation()}>
                 <span className="close-Modal" onClick={this.handleCloseModal}><i className="fas fa-window-close"></i></span>
-                <div className="modal-title" suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTxtChange(e.target.textContent, 'title')}>{props.note.info.title}</div>
+                <div className="modal-title" data-text="Title" suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTxtChange(e.target.textContent, 'title')}>{props.note.info.title}</div>
                 <ul>
                     {props.note.info.todos.map((todo, i) =>
                         <li key={i}>
                             <input type="checkbox" onClick={() => this.onToggleTodo(todo)}></input>
-                            <span className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTodoTxtChange(e.target.textContent, todo)}>
+                            <span data-text="Todo" className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTodoTxtChange(e.target.textContent, todo)}>
                                 {todo.txt}
                             </span>
                             <span> - {this.onSetDateFormat(todo.doneAt)}</span>
                         </li>)}
                 </ul>
+                <button onClick={this.onAddTodo}>add todo</button>
             </div>
         </div>
     }
