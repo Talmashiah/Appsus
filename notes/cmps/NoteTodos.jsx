@@ -16,7 +16,7 @@ export default class NoteTodos extends React.Component {
         const { props } = this;
         return <div onClick={this.handleClick}>
             <div className="preview-title" data-text="Title">{props.note.info.title}</div>
-            <ul>
+            <ul className="todos-container">
                 {props.note.info.todos.map((todo, i) =>
                     <li key={i}>
                         <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt ? todo.txt : "Todo"}</span>

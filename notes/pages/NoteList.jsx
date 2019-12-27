@@ -59,12 +59,14 @@ export default class NoteListPage extends React.Component {
     render() {
         return (
             <section>
-                <div className="notes-container">
-                    <div>{this.DynamicInput(this.state.inputType)}</div>
+                <div className="add-notes-container">
+                <div>{this.DynamicInput(this.state.inputType)}</div>
                     <button onClick={() => this.onChangeInputType('txt')} className="add-image-btn"><i className="fas fa-font"></i></button>
                     <button onClick={() => this.onChangeInputType('img')} className="add-image-btn"><i className="fas fa-image"></i></button>
                     <button onClick={() => this.onChangeInputType('todos')} className="add-image-btn"><i className="fas fa-list"></i></button>
                     <button className="add-note-btn" onClick={this.onAddNote}>Add</button>
+                </div>
+                <div className="notes-container">
                     {this.state.notes.map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
                 </div>
             </section>
