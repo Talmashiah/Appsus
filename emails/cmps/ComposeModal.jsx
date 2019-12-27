@@ -12,6 +12,7 @@ export default class ComposeModal extends React.Component {
             body: '',
             isRead: false,
             isStarred: false,
+            isSent: true,
             sentAt: Date.now(),
             id: 31
         }
