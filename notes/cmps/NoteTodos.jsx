@@ -15,11 +15,11 @@ export default class NoteTodos extends React.Component {
     render() {
         const { props } = this;
         return <div onClick={this.handleClick}>
-            <div>{props.note.info.title}</div>
-            <ul>
+            <div className="preview-title" data-text="Title">{props.note.info.title}</div>
+            <ul className="todos-container">
                 {props.note.info.todos.map((todo, i) =>
                     <li key={i}>
-                        <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt}</span>
+                        <input type="checkbox"></input> <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt ? todo.txt : "Todo"}</span>
                         <span> - {this.onSetDateFormat(todo.doneAt)}</span>
                     </li>)}
             </ul>

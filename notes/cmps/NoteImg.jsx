@@ -9,8 +9,8 @@ export default class NoteImg extends React.Component {
         const { props } = this;
         return <div onClick={this.handleClick}>
                 <img className="note-img" src={props.note.info.url} alt="note image"/>
-                <div>{props.note.info.title}</div>
-                <div>{props.note.info.txt}</div>
+                <div className="preview-title">{props.note.info.title}</div>
+                <div className="preview-txt">{props.note.info.txt}</div>
             </div>
     }
 }

@@ -4,6 +4,7 @@ import storageService from '../../services/storageService.js'
 import eventBusService from "../../services/eventBusService.js";
 import TxtNote from '../../notes/services/TxtNote.js'
 import ImgNote from '../../notes/services/ImgNote.js'
+import TodoNote from '../../notes/services/TodoNote.js'
 
 export default {
     getNotes,
@@ -93,7 +94,7 @@ function getNotes() {
 }
 
 function addNote(info, type) {
-    let note;
+    let note; 
     switch (type) {
         case 'NoteText':
             note = new TxtNote(info, type);
@@ -105,13 +106,18 @@ function addNote(info, type) {
             gNotes = [...gNotes, note];
             storageService.store('notes', gNotes);
             return Promise.resolve(gNotes);
+        case 'NoteTodos':
+            note = new TodoNote(info, type);
+            gNotes = [...gNotes, note];
+            storageService.store('notes', gNotes);
+            return Promise.resolve(gNotes);
         default:
-            break; 
+            break;
     }
 
 }
 
-function addNoteTodo (note) {
+function addNoteTodo(note) {
     let copyNote = JSON.parse(JSON.stringify(note));
     copyNote.info.todos.push({ id: utils.getRandomID(), txt: "", doneAt: Date.now(), isDone: false })
     gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
