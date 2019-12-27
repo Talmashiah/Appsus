@@ -23,14 +23,16 @@ export default class NotePreview extends React.Component {
             case 'NoteTodos':
                 return <NoteTodos note={note} openModal={this.onOpenModal}></NoteTodos>
             default:
-                return 
+                return
         }
     }
 
     render() {
         const { props } = this;
         return <div className="note-container">{this.DynamicCmp(props.note)}
-        <span onClick={this.onDeleteNote}><i className="fas fa-trash"></i></span>
+            <div className="btn-container">
+                <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
+            </div>
         </div>
     }
 }

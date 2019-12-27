@@ -40,11 +40,11 @@ export default class NoteListPage extends React.Component {
         switch (inputType) {
 
             case 'txt':
-                return <input type="text" value={this.state.info} onChange={this.inputChange} placeholder="Take a note..." name="NoteText" />
+                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Take a note..." name="NoteText" />
             case 'img':
-                return <input type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add image URL..." name="NoteImg" />
+                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add image URL..." name="NoteImg" />
             case 'todos':
-                return <input type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add todo title" name="NoteTodos" />
+                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add todo title" name="NoteTodos" />
 
             default:
                 return
@@ -58,12 +58,12 @@ export default class NoteListPage extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className="note-body">
                 <div className="add-notes-container">
-                <div>{this.DynamicInput(this.state.inputType)}</div>
-                    <button onClick={() => this.onChangeInputType('txt')} className="add-image-btn"><i className="fas fa-font"></i></button>
-                    <button onClick={() => this.onChangeInputType('img')} className="add-image-btn"><i className="fas fa-image"></i></button>
-                    <button onClick={() => this.onChangeInputType('todos')} className="add-image-btn"><i className="fas fa-list"></i></button>
+                    <div>{this.DynamicInput(this.state.inputType)}</div>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('txt')}><i className="fas fa-font"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('img')}><i className="fas fa-image"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('todos')}><i className="fas fa-list"></i></button>
                     <button className="add-note-btn" onClick={this.onAddNote}>Add</button>
                 </div>
                 <div className="notes-container">
