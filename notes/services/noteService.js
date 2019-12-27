@@ -1,6 +1,9 @@
 'use strict'
+import utils from '../../services/utils.js'
 import storageService from '../../services/storageService.js'
 import eventBusService from "../../services/eventBusService.js";
+import TxtNote from '../../notes/services/TxtNote.js'
+import ImgNote from '../../notes/services/ImgNote.js'
 
 export default {
     getNotes,
@@ -8,12 +11,14 @@ export default {
     editNoteTxt,
     deleteNote,
     toggleTodoStatus,
-    editTodoTxt
+    editTodoTxt,
+    addNote,
+    addNoteTodo
 }
 
 let gNotes = [
     {
-        id: 1,
+        id: utils.getRandomID(),
         type: "NoteText",
         isPinned: true,
         info: {
@@ -22,7 +27,7 @@ let gNotes = [
         }
     },
     {
-        id: 2,
+        id: utils.getRandomID(),
         type: "NoteImg",
         info: {
             url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/37/31/3b/mount-kilimanjaro-view.jpg",
@@ -34,7 +39,7 @@ let gNotes = [
         }
     },
     {
-        id: 3,
+        id: utils.getRandomID(),
         type: "NoteTodos",
         info: {
             title: "To do list",
@@ -45,7 +50,7 @@ let gNotes = [
         }
     },
     {
-        id: 4,
+        id: utils.getRandomID(),
         type: "NoteText",
         isPinned: true,
         info: {
@@ -54,7 +59,7 @@ let gNotes = [
         }
     },
     {
-        id: 5,
+        id: utils.getRandomID(),
         type: "NoteImg",
         info: {
             url: "https://qph.fs.quoracdn.net/main-qimg-225232d1b893f689e7d24ad42e6a0de7",
@@ -66,7 +71,7 @@ let gNotes = [
         }
     },
     {
-        id: 6,
+        id: utils.getRandomID(),
         type: "NoteTodos",
         info: {
             title: "Things to do each day:",
@@ -87,8 +92,35 @@ function getNotes() {
     return Promise.resolve([...gNotes]);
 }
 
+function addNote(info, type) {
+    let note;
+    switch (type) {
+        case 'NoteText':
+            note = new TxtNote(info, type);
+            gNotes = [...gNotes, note];
+            storageService.store('notes', gNotes);
+            return Promise.resolve(gNotes);
+        case 'NoteImg':
+            note = new ImgNote(info, type);
+            gNotes = [...gNotes, note];
+            storageService.store('notes', gNotes);
+            return Promise.resolve(gNotes);
+        default:
+            break; 
+    }
+
+}
+
+function addNoteTodo (note) {
+    let copyNote = JSON.parse(JSON.stringify(note));
+    copyNote.info.todos.push({ id: utils.getRandomID(), txt: "", doneAt: Date.now(), isDone: false })
+    gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+    return Promise.resolve(copyNote);
+}
+
 function deleteNote(note) {
-    console.log(note);
     gNotes = gNotes.filter((currNote) => currNote.id !== note.id);
     storageService.store('notes', gNotes);
     eventBusService.emit('noteChanged');
@@ -113,9 +145,10 @@ function toggleTodoStatus(note, todo) {
     return Promise.resolve(copyNote);
 }
 
-function editTodoTxt (txt,todo,note){
+function editTodoTxt(txt, todo, note) {
     let copyNote = JSON.parse(JSON.stringify(note));
     todo.txt = txt;
+    todo.doneAt = Date.now()
     copyNote.info.todos = copyNote.info.todos.map(currTodo => currTodo.id === todo.id ? todo : currTodo);
     gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
     storageService.store('notes', gNotes);
