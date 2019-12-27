@@ -3,7 +3,7 @@ export default class NoteImgModal extends React.Component {
 
     handleCloseModal = (isClose) => {
         if (isClose) {
-            this.props.onCloseModal()
+            this.props.onCloseModal();
         } else {
             return;
         }
