@@ -6,5 +6,6 @@ export default class TxtNote{
         this.type = type;
         this.isPinned = false;
         this.info = {title:txt,txt:''};
+        this.style={backgroundColor: "note-defualt-color"}
     }
 }

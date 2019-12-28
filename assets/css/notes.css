@@ -12,6 +12,11 @@ body {
     content:attr(data-text)
 }
 
+::placeholder { 
+    color: rgba(20, 19, 19, 0.849);
+    opacity: 1; /* Firefox */
+  }
+
 .note-body{
     margin-top: 95px;
     box-sizing: border-box;
@@ -34,7 +39,8 @@ body {
     margin: auto;
     border: solid 2px #e0e0e0;
     width: 450px;
-    border-radius: 8px;
+    border-radius: 5px;
+    box-shadow: 3px 10px 13px -9px #cecece;
 }
 
 .add-note-input {
@@ -45,11 +51,15 @@ body {
     font-size: 20px;
     font-family: cursive;
     padding-left: 8px;
+    background-color: transparent;
 }
 
 .add-note-btn {
     border: none;
-    background-color: #fff;
+    background-color: transparent;
+    font-size: 17px;
+    outline: none;
+    cursor: pointer;
 }
 
 .note-container{
@@ -65,6 +75,7 @@ body {
     position: relative;
     padding-bottom: 35px;
     transition: all ease-in-out .218s;
+    column-span: none;
 }
 
 .note-container:hover{
@@ -222,6 +233,8 @@ body {
     font-size: 17px;
     padding: 5px 5px 5px 8px;
     word-break: break-word;
+    outline: none;
+    min-height: 40px;
 }
 
 .todos-container {
@@ -247,7 +260,6 @@ body {
     min-height: 180px;
     min-width: 500px;
     max-width: 525px;
-    background-color: #fff;
     left: calc(50% - 250px);
     top: calc(100vh - 750px);
     opacity: 1;
@@ -260,7 +272,14 @@ body {
 
 .modal-title {
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 3px;
+    outline: none;
+    font-size: 23px;
+    padding-left: 12px;
+}
+
+.modal-txt {
+    padding-left: 15px;
 }
 
 .close-Modal{

@@ -66,7 +66,7 @@ export default class NoteListPage extends React.Component {
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('img')}><i className="fas fa-image"></i></button>
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('video')}><i className="fab fa-youtube"></i></button>
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('todos')}><i className="fas fa-list"></i></button>
-                    <button className="add-note-btn" onClick={this.onAddNote}>Add</button>
+                    <button className="add-note-btn" onClick={this.onAddNote}><i className="fas fa-comment-medical"></i></button>
                 </div>
                 <div className="notes-container">
                     {this.state.notes.map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}

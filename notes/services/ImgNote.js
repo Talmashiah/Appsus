@@ -6,6 +6,6 @@ export default class ImgNote{
         this.type = type;
         this.isPinned = false;
         this.info = {url:info,title:'',txt:''};
-        this.style={backgroundColor: "#00d"}
+        this.style={backgroundColor: "note-defualt-color"}
     }
 }
