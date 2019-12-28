@@ -17,7 +17,8 @@ export default {
     addNote,
     addNoteTodo,
     ChangeNoteColor,
-    togglePinned
+    togglePinned,
+    cloneNote
 }
 
 let gNotes = [
@@ -30,7 +31,7 @@ let gNotes = [
             txt: "Do not be afraid of fear"
         },
         style: {
-            backgroundColor: "note-red-color"
+            backgroundColor: "note-defualt-color"
         }
     },
     {
@@ -43,7 +44,7 @@ let gNotes = [
             txt: "It was worth it after a million stairs..."
         },
         style: {
-            backgroundColor: "note-defualt-color"
+            backgroundColor: "note-brown-color"
         }
     },
     {
@@ -56,7 +57,7 @@ let gNotes = [
             txt: "What a gay fucker"
         },
         style: {
-            backgroundColor: "note-defualt-color"
+            backgroundColor: "note-pink-color"
         }
     },
     {
@@ -71,7 +72,7 @@ let gNotes = [
             ]
         },
         style: {
-            backgroundColor: "note-teal-color"
+            backgroundColor: "note-grey-color"
         }
     },
     {
@@ -102,7 +103,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteTodos",
-        isPinned: false,
+        isPinned: true,
         info: {
             title: "Things to do each day:",
             todos: [
@@ -111,7 +112,7 @@ let gNotes = [
             ]
         },
         style: {
-            backgroundColor: "note-defualt-color"
+            backgroundColor: "note-dark-blue-color"
         }
     },
     {
@@ -137,7 +138,7 @@ let gNotes = [
             txt: ""
         },
         style: {
-            backgroundColor: "note-defualt-color"
+            backgroundColor: "note-green-color"
         }
     }
 
@@ -166,6 +167,12 @@ function getNotes() {
         storageService.store('notes', gNotes);
     }
     return Promise.resolve([...gNotes]);
+}
+
+function cloneNote(note){
+    gNotes = [...gNotes, note];
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
 }
 
 function addNote(info, type) {

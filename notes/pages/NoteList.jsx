@@ -36,17 +36,21 @@ export default class NoteListPage extends React.Component {
         this.setState({ type: fieldName, info: value })
     }
 
+    onkeyup = (ev) => {
+        if(event.keyCode === 13) this.onAddNote();
+    }
+
     DynamicInput = (inputType) => {
         switch (inputType) {
 
             case 'txt':
-                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Take a note..." name="NoteText" />
+                return <input onKeyUp={this.onkeyup} className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Take a note..." name="NoteText" />
             case 'img':
-                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add image URL..." name="NoteImg" />
+                return <input onKeyUp={this.onkeyup} className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add image URL..." name="NoteImg" />
             case 'todos':
-                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add todo title" name="NoteTodos" />
+                return <input onKeyUp={this.onkeyup} className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add todo title" name="NoteTodos" />
             case 'video':
-                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add youtube URL..." name="NoteVideo" />
+                return <input onKeyUp={this.onkeyup} className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add youtube URL..." name="NoteVideo" />
             default:
                 return
         }

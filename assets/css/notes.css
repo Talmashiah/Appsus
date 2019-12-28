@@ -5,6 +5,27 @@ body {
     margin:0;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 
 /* notes */
 
@@ -110,6 +131,31 @@ body {
     width: 100%;
     cursor: default;
 }
+
+.add-todo-btn-container {
+    padding-left: 42px;
+    padding-bottom: 12px;
+}
+
+.add-todo-btn {
+    background-color: white;
+    border: solid 1px #555555;
+    color: black;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    width: 73px;
+    font-size: 12px;
+    padding: 3px;
+    font-family: sans-serif;
+    transition: ease 0.5s;
+}
+
+.add-todo-btn:hover{
+    background-color: #555555;
+    color: white;
+}
+
 
 .note-btn {
     height: 30px;
@@ -257,6 +303,10 @@ body {
     padding: 4px;
 }
 
+.todo-checkbox{
+    cursor: pointer;
+}
+
 
 
 /* modal */
@@ -292,10 +342,16 @@ body {
     outline: none;
     font-size: 23px;
     padding-left: 12px;
+    cursor: text;
 }
 
 .modal-txt {
     padding-left: 15px;
+    cursor: text;
+}
+
+.todo-modal-txt{
+    cursor: text;
 }
 
 .close-Modal{

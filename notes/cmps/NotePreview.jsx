@@ -23,6 +23,14 @@ export default class NotePreview extends React.Component {
         noteService.togglePinned(this.props.note);
     }
 
+    toggleTodo = (note,todo) => {
+        noteService.toggleTodoStatus(note, todo);
+    }
+
+    cloneNote = (note) => {
+        noteService.cloneNote(note);
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
             case 'NoteText':
@@ -30,7 +38,7 @@ export default class NotePreview extends React.Component {
             case 'NoteImg':
                 return <NoteImg note={note} openModal={this.onOpenModal}></NoteImg>
             case 'NoteTodos':
-                return <NoteTodos note={note} openModal={this.onOpenModal}></NoteTodos>
+                return <NoteTodos note={note} openModal={this.onOpenModal} toggleTodo={this.toggleTodo}></NoteTodos>
             case 'NoteVideo':
                 return <NoteVideo note={note} openModal={this.onOpenModal}></NoteVideo>
             default:
@@ -44,6 +52,8 @@ export default class NotePreview extends React.Component {
             <div className="btn-container">
                 <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
                 <div className='note-btn' onClick={this.onTogglePinned}><i className="fas fa-thumbtack"></i></div>
+                <div className='note-btn' onClick={()=>this.onOpenModal(props.note)}><i className="fas fa-edit"></i></div>
+                <div className='note-btn' onClick={()=>this.cloneNote(props.note)}><i class="fas fa-clone"></i></div>
                 <div className='note-btn note-color-btn'>
                     <i className="fas fa-palette"></i>
                     <div className="colors-container">
