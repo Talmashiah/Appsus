@@ -218,7 +218,7 @@ a {
     position: fixed;
     width: 170px;
     /* background: rgba(255, 255, 255, 0.226); */
-    background: gray;
+    background: #00a087;
 }
 
 .compose-button {
@@ -312,6 +312,30 @@ a {
     margin-left: -10px;
 }
 
+.inbox-container-trash {
+    justify-content: space-between;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2px;
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    margin-left: -10px;
+}
+
+.trash-inbox {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 63px;
+}
+
 .starred-inbox {
     font-family: Arial, Helvetica, sans-serif;
     margin-right: 51px;
@@ -331,6 +355,10 @@ a {
     margin-left: 26px;
 }
 
+.inbox-container-trash .fa-trash {
+    margin-left: 28px;
+}
+
 .inbox-container-star:hover {
     background: rgba(250, 249, 249, 0.493);
 }
@@ -340,6 +368,10 @@ a {
 }
 
 .inbox-container:hover {
+    background: rgba(250, 249, 249, 0.493);
+}
+
+.inbox-container-trash:hover {
     background: rgba(250, 249, 249, 0.493);
 }
 
@@ -359,7 +391,7 @@ a {
 
 .email-page-container {
     margin-top: 70px;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     border: 1px solid black;
     margin-left: 170px;
@@ -369,8 +401,67 @@ a {
     background: white;
 }
 
+.email-page-container h2 {
+    padding-left: 20px;
+    margin-top: -10px;
+}
+
+.email-page-container h1 {
+    padding-left: 20px;
+    margin-top: -3px;
+}
+
 .email-page-container button {
     cursor: pointer;
+}
+
+.emailpage-body-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 50px);
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    height: 70%;
+    background: #edf0f3;
+}
+
+.emailpage-body-container div {
+    background: white;
+    height: 80%;
+    display: block;
+    margin: 28px 300px;
+    padding: 21px;
+    /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    line-height: 1.8em;
+    overflow-y: scroll;
+    max-height: auto;
+}
+
+.go-back-btn-body, .delete-btn-body {
+    transition: all ease .4s;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 30px;
+    width: 100px;
+    background: black;
+    border: 1px solid black;
+    color: white;
+}
+
+.go-back-btn-body:hover, .delete-btn-body:hover {
+    background: rgb(43, 41, 41);
+}
+
+.go-back-btn-body {
+    margin-right: 15px;
+}
+
+.go-back-btn-body {
+    margin-left: 15px;
 }
 
 /* Filter */
@@ -423,13 +514,22 @@ a {
 }
 
 .search-input {
+    background: rgba(241, 243, 244, 0.24);
+    color: white;
+    border: none;
     margin: 0;
     outline: none;
     padding-left: 36px;
-    width: 369px;
+    width: 389px;
     height: 28px;
     border-radius: 10px;
-    margin-left: 16px;
+    padding-left: 39px;
+    float: right;
+    position: absolute;
+    float: left;
+    left: 0;
+    margin-top: -14px;
+    margin-left: 233px;
     cursor: text;
 }
 
@@ -444,12 +544,23 @@ a {
     border: 1px solid black;
     height: 45px;
     margin-top: 70px;
+    background: black;
+}
+
+.fa-search {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 70px;
+    cursor: pointer;
 }
 
 .search-input-container {
-    margin-left: 20px;
     box-sizing: border-box;
 }
+
+
 
 /*Apsus Nav Bar */
 

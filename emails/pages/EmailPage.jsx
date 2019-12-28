@@ -3,7 +3,7 @@ import EmailSideBar from '../cmps/EmailSideBar.jsx';
 
 export default class EmailPage extends React.Component {
     state = {
-        email: null
+        email: null,
     }
 
     componentDidMount() {
@@ -35,9 +35,11 @@ export default class EmailPage extends React.Component {
             , <div key="g" className={'email-page-container'}>
                 <h1>{this.state.email.from}</h1>
                 <h2>{this.state.email.subject}</h2>
-                <p>{this.state.email.body}</p>
-                <button onClick={this.goBack}>GO BACK</button>
-                <button onClick={this.onDelete}>Delete</button>
+                <div className={'emailpage-body-container'}>
+                    <div>{this.state.email.body}</div>
+                </div>
+                <button className={'go-back-btn-body'} onClick={this.goBack}>Back</button>
+                <button className={'delete-btn-body'} onClick={this.onDelete}>Delete</button>
             </div>
         ]
 
