@@ -15,6 +15,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now(),
+        replys: [],
         id: 1
     },
     {
@@ -26,6 +27,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 3600000,
+        replys: [],
         id: 2
     },
     {
@@ -37,6 +39,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 39325237,
+        replys: [],
         id: 3
     },
     {
@@ -48,6 +51,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 1111112,
+        replys: [],
         id: 4
     },
     {
@@ -59,6 +63,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 1111111111,
+        replys: [],
         id: 5
     },
     {
@@ -70,6 +75,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 124124124,
+        replys: [],
         id: 6
     },
     {
@@ -81,6 +87,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 124214214214,
+        replys: [],
         id: 7
     },
     {
@@ -92,6 +99,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 2903497809324,
+        replys: [],
         id: 8
     },
 
@@ -104,6 +112,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 43257325,
+        replys: [],
         id: 9
     },
     {
@@ -115,6 +124,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 10000000000,
+        replys: [],
         id: 10
     },
 
@@ -127,6 +137,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('June 1, 2019 00:11:22 GMT+00:00').getTime(),
+        replys: [],
         id: 11
     },
     {
@@ -138,6 +149,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('January 12, 2019 00:37:22 GMT+00:00').getTime(),
+        replys: [],
         id: 12
     },
     {
@@ -149,6 +161,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('April 12, 2019 00:54:22 GMT+00:00').getTime(),
+        replys: [],
         id: 13
     },
     {
@@ -160,6 +173,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('January 27, 2019 00:14:22 GMT+00:00').getTime(),
+        replys: [],
         id: 14
     },
     {
@@ -171,6 +185,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('July 17, 2019 00:39:22 GMT+00:00').getTime(),
+        replys: [],
         id: 15
 
     },
@@ -183,6 +198,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('Febuary 7, 2019 00:17:22 GMT+00:00').getTime(),
+        replys: [],
         id: 16
     },
     {
@@ -194,6 +210,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('October 12, 2019 00:14:38 GMT+00:00').getTime(),
+        replys: [],
         id: 17
     },
 
@@ -206,6 +223,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('December 16, 2019 00:19:38 GMT+00:00').getTime(),
+        replys: [],
         id: 18
 
     },
@@ -218,6 +236,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('December 24, 2019 00:11:38 GMT+00:00').getTime(),
+        replys: [],
         id: 19,
     },
     {
@@ -229,6 +248,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('December 26, 2019 00:12:38 GMT+00:00').getTime(),
+        replys: [],
         id: 20
 
     },
@@ -241,6 +261,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('April 3, 2019 00:16:38 GMT+00:00').getTime(),
+        replys: [],
         id: 21
 
     },
@@ -253,6 +274,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 1000000,
+        replys: [],
         id: 22
 
     },
@@ -265,6 +287,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 10000,
+        replys: [],
         id: 23
 
     },
@@ -277,6 +300,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('March 20, 2019 00:21:38 GMT+00:00').getTime(),
+        replys: [],
         id: 24
 
     },
@@ -289,6 +313,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('September 27, 2018 00:20:18 GMT+00:00').getTime(),
+        replys: [],
         id: 25
 
     },
@@ -301,6 +326,7 @@ let gEmails = [
         isSent: false,
         isTrash: true,
         sentAt: new Date('August 20, 2019 00:20:18 GMT+00:00').getTime(),
+        replys: [],
         id: 26
 
     },
@@ -313,6 +339,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 10000,
+        replys: [],
         id: 27
 
     },
@@ -325,6 +352,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('July 20, 69 00:20:18 GMT+00:00').getTime(),
+        replys: [],
         id: 28
     },
     {
@@ -336,6 +364,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: new Date('July 20, 89 00:20:18 GMT+00:00').getTime(),
+        replys: [],
         id: 29
     },
     {
@@ -347,6 +376,7 @@ let gEmails = [
         isSent: false,
         isTrash: false,
         sentAt: Date.now() - 100000,
+        replys: [],
         id: 30,
     },
     {
@@ -358,6 +388,7 @@ let gEmails = [
         isSent: true,
         isTrash: false,
         sentAt: Date.now() - 100000,
+        replys: [],
         id: 32,
     }
 
@@ -376,6 +407,7 @@ export default {
     unreadMailCount,
     removeEmail,
     unToggleTrash,
+    replyEmail,
 }
 
 
@@ -530,4 +562,13 @@ function unreadMailCount() {
     let count = gEmails.filter(function (email) { return !email.isRead; }).length;
     if (!count) return 0;
     return count;
+}
+
+
+function replyEmail(reply, email) {
+    let copyEmail = JSON.parse(JSON.stringify(email));
+    copyEmail.replys.push(reply);
+    gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
+    storageService.store('emails', gEmails);
+    return Promise.resolve(copyEmail);
 }
