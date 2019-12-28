@@ -22,6 +22,7 @@ export default class EmailFilter extends React.Component {
 
     render() {
         return <div className="email-list-header">
+            <span><i class="fas fa-search"></i></span>
             <div className={'search-input-container'}><input className="search-input" type="text" placeholder="Search Mail" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input></div>
             <div className={'dropdown'}>

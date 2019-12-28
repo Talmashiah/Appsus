@@ -2,6 +2,8 @@
 import storageService from '../../services/storageService.js'
 import eventBusService from "../../services/eventBusService.js";
 
+
+let gTrashMails = [];
 let gIsDateSortedUp = false;
 let gEmails = [
 
@@ -332,6 +334,7 @@ export default {
     getRandomId,
     sendEmail,
     unreadMailCount,
+
 }
 
 
@@ -349,6 +352,11 @@ function getEmails(filterBy) {
         return Promise.resolve(sortedEmails);
     }
     if (filterBy === 'All') return Promise.resolve([...gEmails]);
+
+    if (filterBy === 'Trash') {
+        const filteredEmails = gTrashMails;
+        return Promise.resolve([...filteredEmails]);
+    }
 
     if (filterBy === 'Sent') {
         const filteredEmails = gEmails.filter(email => email.isSent);
@@ -391,10 +399,6 @@ function getEmails(filterBy) {
 
     }
 
-
-
-
-
     const filteredEmails = gEmails.filter(email => email.subject.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.body.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.from.toLowerCase().includes(filterBy.name.toLowerCase()));
@@ -410,10 +414,12 @@ function getEmailById(emailId) {
 }
 
 function deleteEmail(email) {
+    gTrashMails.push(gEmails.filter((currEmail) => currEmail.id === email.id));
     gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id);
     storageService.store('emails', gEmails);
 
 }
+
 
 function toggleRead(email) {
     if (email.isRead) return;
