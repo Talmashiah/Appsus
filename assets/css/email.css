@@ -133,6 +133,31 @@ a {
     transition: ease all .5s;
 }
 
+.back-inbox-btn {
+    color: gray;
+    padding-top: 9px;
+    width: 34px;
+    height: 23px;
+    font-size: 14px;
+    border-radius: 55%;
+    float: right;
+    display: block;
+    position: absolute;
+    margin-top: -36px;
+    margin-right: 216px;
+    cursor: pointer;
+    text-align: center;
+    right: 0;
+    transition: ease all .5s;
+}
+
+.back-inbox-btn:hover {
+    background: rgba(168, 168, 170, 0.685);
+    width: 34px;
+    height: 23px;
+    color: black;
+}
+
 .delete-button-preview:hover {
     background: rgba(168, 168, 170, 0.685);
     width: 34px;
@@ -559,8 +584,6 @@ a {
 .search-input-container {
     box-sizing: border-box;
 }
-
-
 
 /*Apsus Nav Bar */
 

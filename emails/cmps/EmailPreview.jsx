@@ -38,8 +38,13 @@ export default class EmailPreview extends React.Component {
         this.props.toggleStar(this.props.email);
     }
 
+    onReturnInbox = () => {
+        this.props.unToggleTrash(this.props.email);
+    }
+
 
     render() {
+        const backInboxBtn = (this.state.isHovered && this.props.email.isTrash) ? "back-inbox-btn" : "back-inbox-btn hidden";
         const btnClass = this.state.isHovered ? "delete-button-preview" : "delete-button-preview hidden";
         const btnOpenClass = this.state.isHovered ? "open-button-preview" : "open-button-preview hidden";
         const btnReadClass = this.state.isHovered ? "mark-read-button" : "mark-read-button hidden";
@@ -62,8 +67,10 @@ export default class EmailPreview extends React.Component {
                 <Link to={`/emailApp/email/${props.email.id}`}>  <span className={btnOpenClass} key="90" data-toggle={'tooltip'} title={'Open'}><i className={'fas fa-expand'}></i> </span></Link>
                 <span className={btnReadClass} key="2" onClick={this.onToggleUnRead} data-toggle={'tooltip'} title={props.email.isRead ? 'Mark as unread' : 'Mark as read'}>
                     <i className={props.email.isRead ? 'fas fa-envelope' : 'fas fa-envelope-open'}></i></span>
+                <span className={backInboxBtn} key="19" data-toggle={'tooltip'} title={'Return to inbox'} onClick={this.onReturnInbox}><i className={'fas fa-chevron-left'}></i> </span>
             </div>
         </div >
     }
 }
+
 

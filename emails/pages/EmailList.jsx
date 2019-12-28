@@ -52,7 +52,10 @@ export default class EmailList extends React.Component {
         this.loadEmails();
     }
 
-
+    unToggleTrash = (email) => {
+        emailsService.unToggleTrash(email);
+        this.loadEmails();
+    }
 
     render() {
         return (
@@ -61,7 +64,7 @@ export default class EmailList extends React.Component {
                 <EmailFilter className={'email-filter'} key="1" onSetFilter={this.onSetFilter} />
                 <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email}
                     deleteEmail={email.isTrash ? this.removeEmail : this.deleteEmail}
-                    toggleRead={this.toggleRead} toggleUnRead={this.toggleUnRead} toggleStar={this.toggleStar}>
+                    toggleRead={this.toggleRead} toggleUnRead={this.toggleUnRead} toggleStar={this.toggleStar} unToggleTrash={this.unToggleTrash}>
                 </EmailPreview>)}</ul>
             </section>
         )

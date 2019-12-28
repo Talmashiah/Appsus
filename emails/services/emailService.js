@@ -375,6 +375,7 @@ export default {
     sendEmail,
     unreadMailCount,
     removeEmail,
+    unToggleTrash,
 }
 
 
@@ -490,7 +491,7 @@ function toggleRead(email) {
 }
 
 function toggleUnRead(email) {
-    let copyEmail = JSON.parse(JSON.stringify(email))
+    let copyEmail = JSON.parse(JSON.stringify(email));
     copyEmail.isRead = !copyEmail.isRead;
     gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
     storageService.store('emails', gEmails);
@@ -498,8 +499,16 @@ function toggleUnRead(email) {
 }
 
 function toggleStar(email) {
-    let copyEmail = JSON.parse(JSON.stringify(email))
+    let copyEmail = JSON.parse(JSON.stringify(email));
     copyEmail.isStarred = !copyEmail.isStarred;
+    gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
+    storageService.store('emails', gEmails);
+    return Promise.resolve(copyEmail);
+}
+
+function unToggleTrash(email) {
+    let copyEmail = JSON.parse(JSON.stringify(email));
+    copyEmail.isTrash = false;
     gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
     storageService.store('emails', gEmails);
     return Promise.resolve(copyEmail);
