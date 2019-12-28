@@ -54,7 +54,7 @@ let gNotes = [
         info: {
             url: "https://www.youtube.com/watch?v=MBerhd8bXjY",
             title: "Samuel's favorite song",
-            txt: "What a gay fucker"
+            txt: "What a douchebag.."
         },
         style: {
             backgroundColor: "note-pink-color"

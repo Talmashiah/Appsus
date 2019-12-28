@@ -53,7 +53,7 @@ export default class NotePreview extends React.Component {
                 <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
                 <div className='note-btn' onClick={this.onTogglePinned}><i className="fas fa-thumbtack"></i></div>
                 <div className='note-btn' onClick={()=>this.onOpenModal(props.note)}><i className="fas fa-edit"></i></div>
-                <div className='note-btn' onClick={()=>this.cloneNote(props.note)}><i class="fas fa-clone"></i></div>
+                <div className='note-btn' onClick={()=>this.cloneNote(props.note)}><i className="fas fa-clone"></i></div>
                 <div className='note-btn note-color-btn'>
                     <i className="fas fa-palette"></i>
                     <div className="colors-container">
