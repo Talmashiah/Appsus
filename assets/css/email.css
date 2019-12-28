@@ -418,7 +418,7 @@ a {
     margin-right: 101px;
     max-width: 80vw;
     height: 80vh;
-    background: white;
+    background: rgba(255, 255, 255, 0.548);
 }
 
 .email-page-container h2 {
@@ -443,11 +443,11 @@ a {
     margin-top: 10px;
     padding: 10px;
     height: 70%;
-    background: #edf0f3;
+    background: #edf0f3be;
 }
 
 .emailpage-body-container div {
-    background: white;
+    background: rgba(255, 255, 255, 0.774);
     height: 80%;
     display: block;
     margin: 28px 300px;
