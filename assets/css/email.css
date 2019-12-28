@@ -768,3 +768,10 @@ html {}
 .fa-times {
     text-align: center;
 }
+
+/* BOOKS */
+
+.books-container {
+    height: 80vh;
+    overflow-y: scroll;
+}
