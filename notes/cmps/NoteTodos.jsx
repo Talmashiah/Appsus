@@ -23,7 +23,7 @@ export default class NoteTodos extends React.Component {
             <ul className="todos-container">
                 {props.note.info.todos.map((todo, i) =>
                     <li key={i}>
-                        <input type="checkbox" checked={todo.isDone} onChange={() => this.onToggleTodo(todo)}></input>
+                        <input className="todo-checkbox" type="checkbox" checked={todo.isDone} onChange={() => this.onToggleTodo(todo)}></input>
                         <span className={todo.isDone ? 'todo-done' : ''}>{todo.txt ? todo.txt : "Todo"}</span>
                         <span> - {this.onSetDateFormat(todo.doneAt)}</span>
                     </li>)}

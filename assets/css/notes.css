@@ -303,6 +303,10 @@ body {
     padding: 4px;
 }
 
+.todo-checkbox{
+    cursor: pointer;
+}
+
 
 
 /* modal */
@@ -338,10 +342,16 @@ body {
     outline: none;
     font-size: 23px;
     padding-left: 12px;
+    cursor: text;
 }
 
 .modal-txt {
     padding-left: 15px;
+    cursor: text;
+}
+
+.todo-modal-txt{
+    cursor: text;
 }
 
 .close-Modal{

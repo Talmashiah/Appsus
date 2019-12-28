@@ -17,7 +17,8 @@ export default {
     addNote,
     addNoteTodo,
     ChangeNoteColor,
-    togglePinned
+    togglePinned,
+    cloneNote
 }
 
 let gNotes = [
@@ -166,6 +167,12 @@ function getNotes() {
         storageService.store('notes', gNotes);
     }
     return Promise.resolve([...gNotes]);
+}
+
+function cloneNote(note){
+    gNotes = [...gNotes, note];
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
 }
 
 function addNote(info, type) {
