@@ -5,6 +5,7 @@ import eventBusService from "../../services/eventBusService.js";
 import TxtNote from '../../notes/services/TxtNote.js'
 import ImgNote from '../../notes/services/ImgNote.js'
 import TodoNote from '../../notes/services/TodoNote.js'
+import VideoNote from '../../notes/services/VideoNote.js'
 
 export default {
     getNotes,
@@ -81,6 +82,19 @@ let gNotes = [
                 { id: 2, txt: "Go to the gym", doneAt: 1577281200513, isDone: true }
             ]
         }
+    },
+    {
+        id: utils.getRandomID(),
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+            url: "https://www.youtube.com/watch?v=L_LUpnjgPso",
+            title: "I have no money for a radiator",
+            txt: ""
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
     }
 ];
 
@@ -94,7 +108,7 @@ function getNotes() {
 }
 
 function addNote(info, type) {
-    let note; 
+    let note;
     switch (type) {
         case 'NoteText':
             note = new TxtNote(info, type);
@@ -111,8 +125,13 @@ function addNote(info, type) {
             gNotes = [...gNotes, note];
             storageService.store('notes', gNotes);
             return Promise.resolve(gNotes);
+        case 'NoteVideo':
+            note = new VideoNote(info, type);
+            gNotes = [...gNotes, note];
+            storageService.store('notes', gNotes);
+            return Promise.resolve(gNotes);
         default:
-            break;
+            break; 
     }
 
 }

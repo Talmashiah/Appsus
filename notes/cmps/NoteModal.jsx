@@ -2,6 +2,7 @@ import eventBusService from "../../services/eventBusService.js";
 import NoteTextModal from '../../notes/cmps/NoteTextModal.jsx';
 import NoteImgModal from '../../notes/cmps/NoteImgModal.jsx';
 import NoteTodosModal from '../../notes/cmps/NoteTodosModal.jsx';
+import NoteVideoModal from '../../notes/cmps/NoteVideoModal.jsx';
 import noteService from '../../notes/services/noteService.js';
 
 export default class NoteModal extends React.Component {
@@ -56,7 +57,8 @@ export default class NoteModal extends React.Component {
                 return <NoteImgModal note={note} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote}></NoteImgModal>
             case 'NoteTodos':
                 return <NoteTodosModal note={note} onAddTodo={this.addTodo} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote} editTodoTxtNote={this.editTodoTxtNote} toggleTodo={this.toggleTodo}></NoteTodosModal>
-
+            case 'NoteVideo':
+                return <NoteVideoModal note={note} onCloseModal={this.closeModal} editTxtNote={this.editTxtNote}></NoteVideoModal>
             default:
                 return
         }

@@ -1,6 +1,7 @@
 import NoteText from '../../notes/cmps/NoteText.jsx'
 import NoteImg from '../../notes/cmps/NoteImg.jsx'
 import NoteTodos from '../../notes/cmps/NoteTodos.jsx'
+import NoteVideo from '../../notes/cmps/NoteVideo.jsx'
 import eventBusService from '../../services/eventBusService.js'
 import noteService from '../services/noteService.js'
 
@@ -22,6 +23,8 @@ export default class NotePreview extends React.Component {
                 return <NoteImg note={note} openModal={this.onOpenModal}></NoteImg>
             case 'NoteTodos':
                 return <NoteTodos note={note} openModal={this.onOpenModal}></NoteTodos>
+            case 'NoteVideo':
+                return <NoteVideo note={note} openModal={this.onOpenModal}></NoteVideo>
             default:
                 return
         }

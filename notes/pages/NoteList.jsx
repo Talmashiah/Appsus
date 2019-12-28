@@ -45,7 +45,8 @@ export default class NoteListPage extends React.Component {
                 return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add image URL..." name="NoteImg" />
             case 'todos':
                 return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add todo title" name="NoteTodos" />
-
+            case 'video':
+                return <input className="add-note-input" type="text" value={this.state.info} onChange={this.inputChange} placeholder="Add youtube URL..." name="NoteVideo" />
             default:
                 return
         }
@@ -63,6 +64,7 @@ export default class NoteListPage extends React.Component {
                     <div>{this.DynamicInput(this.state.inputType)}</div>
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('txt')}><i className="fas fa-font"></i></button>
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('img')}><i className="fas fa-image"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('video')}><i className="fab fa-youtube"></i></button>
                     <button className="add-note-btn" onClick={() => this.onChangeInputType('todos')}><i className="fas fa-list"></i></button>
                     <button className="add-note-btn" onClick={this.onAddNote}>Add</button>
                 </div>
