@@ -172,6 +172,19 @@ body {
     left: 4px;
 }
 
+.note-defualt-color{background-color: white;}
+.note-red-color{background-color: #F44336;}
+.note-orange-color{background-color: #FF9800;}
+.note-yellow-color{background-color: #FFEB3B;}
+.note-green-color{background-color: #4CAF50;}
+.note-teal-color{background-color: #00BCD4;}
+.note-blue-color{background-color: #2196F3;}
+.note-dark-blue-color{background-color: #3F51B5;}
+.note-purple-color{background-color: #9C27B0;}
+.note-pink-color{background-color: #ffbfca;}
+.note-brown-color{background-color: #795548;}
+.note-grey-color{background-color: #9e9e9e;}
+
 .note-color-btn:hover .colors-container{
     display: block;
 }

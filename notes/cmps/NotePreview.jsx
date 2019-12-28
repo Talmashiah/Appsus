@@ -15,6 +15,10 @@ export default class NotePreview extends React.Component {
         noteService.deleteNote(this.props.note);
     }
 
+    onChangeColor = (colorClassName) => {
+        noteService.ChangeNoteColor(this.props.note,colorClassName);
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
             case 'NoteText':
@@ -32,24 +36,24 @@ export default class NotePreview extends React.Component {
 
     render() {
         const { props } = this;
-        return <div className="note-container">{this.DynamicCmp(props.note)}
+        return <div className={`note-container ${props.note.style.backgroundColor}`} >{this.DynamicCmp(props.note)}
             <div className="btn-container">
                 <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
                 <div className='note-btn note-color-btn'>
                     <i className="fas fa-palette"></i>
                     <div className="colors-container">
-                        <div className="color defualt-color"></div>
-                        <div className="color red-color"></div>
-                        <div className="color orange-color"></div>
-                        <div className="color yellow-color"></div>
-                        <div className="color green-color"></div>
-                        <div className="color teal-color"></div>
-                        <div className="color blue-color"></div>
-                        <div className="color dark-blue-color"></div>
-                        <div className="color purple-color"></div>
-                        <div className="color pink-color"></div>
-                        <div className="color brown-color"></div>
-                        <div className="color grey-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-defualt-color')} className="color defualt-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-red-color')} className="color red-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-orange-color')} className="color orange-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-yellow-color')} className="color yellow-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-green-color')} className="color green-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-teal-color')} className="color teal-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-blue-color')} className="color blue-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-dark-blue-color')} className="color dark-blue-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-purple-color')} className="color purple-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-pink-color')} className="color pink-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-brown-color')} className="color brown-color"></div>
+                        <div onClick={()=>this.onChangeColor('note-grey-color')} className="color grey-color"></div>
                     </div>
                 </div>
 

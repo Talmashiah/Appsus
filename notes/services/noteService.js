@@ -15,7 +15,8 @@ export default {
     toggleTodoStatus,
     editTodoTxt,
     addNote,
-    addNoteTodo
+    addNoteTodo,
+    ChangeNoteColor
 }
 
 let gNotes = [
@@ -26,18 +27,34 @@ let gNotes = [
         info: {
             title: "You can Do this!",
             txt: "Do not be afraid of fear"
+        },
+        style: {
+            backgroundColor: "note-red-color"
         }
     },
     {
         id: utils.getRandomID(),
         type: "NoteImg",
         info: {
-            url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/37/31/3b/mount-kilimanjaro-view.jpg",
-            title: "Nice view from the kilimanjaro",
-            txt: "That trip was fucking amazing!"
+            url: "https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/13102863_10206290371366052_3929269278468270841_n.jpg?_nc_cat=110&_nc_ohc=zTCQ1Qdsn-EAQk2k3efDIlPZUjKFxxBZZsxY9_BtV3NCT0wB85Ct97aPg&_nc_ht=scontent.ftlv5-1.fna&oh=57d1e5b0e94fc4448c12ba2862ec4cbf&oe=5E6C6C8D",
+            title: "Beautiful view from Machu Picchu",
+            txt: "It was worth it after a million stairs..."
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "note-defualt-color"
+        }
+    },
+    {
+        id: utils.getRandomID(),
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+            url: "https://www.youtube.com/watch?v=MBerhd8bXjY",
+            title: "Samuel's favorite song",
+            txt: "What a gay fucker"
+        },
+        style: {
+            backgroundColor: "note-defualt-color"
         }
     },
     {
@@ -49,6 +66,9 @@ let gNotes = [
                 { id: 1, txt: "Go buy some milk", doneAt: Date.now() - 1000000, isDone: false },
                 { id: 2, txt: "Visit your grandma", doneAt: Date.now() - 1000, isDone: true }
             ]
+        },
+        style: {
+            backgroundColor: "note-teal-color"
         }
     },
     {
@@ -58,6 +78,9 @@ let gNotes = [
         info: {
             title: "Credit card pin code:",
             txt: "5792"
+        },
+        style: {
+            backgroundColor: "note-defualt-color"
         }
     },
     {
@@ -69,7 +92,7 @@ let gNotes = [
             txt: "Best moment in naruto"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "note-defualt-color"
         }
     },
     {
@@ -81,6 +104,9 @@ let gNotes = [
                 { id: 1, txt: "Eat a Banana", doneAt: Date.now() - 10000489, isDone: false },
                 { id: 2, txt: "Go to the gym", doneAt: 1577281200513, isDone: true }
             ]
+        },
+        style: {
+            backgroundColor: "note-defualt-color"
         }
     },
     {
@@ -93,10 +119,31 @@ let gNotes = [
             txt: ""
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "note-defualt-color"
+        }
+    },
+    {
+        id: utils.getRandomID(),
+        type: "NoteImg",
+        info: {
+            url: "https://scontent.ftlv5-1.fna.fbcdn.net/v/t31.0-8/29355181_10211454886875712_3185929934373046847_o.jpg?_nc_cat=103&_nc_ohc=_4d2prN5rQ4AQlM4JB8RWVmwoqiEo2EipGg24HNKlfw3_KYcSQfckXI_A&_nc_ht=scontent.ftlv5-1.fna&oh=16a729568b36d5bbd7f16f444024a920&oe=5EA473A7",
+            title: "My beautiful motorcycle (R.I.P.)",
+            txt: ""
+        },
+        style: {
+            backgroundColor: "note-defualt-color"
         }
     }
+
 ];
+
+function ChangeNoteColor (note,colorclassName) {
+    let copyNote = JSON.parse(JSON.stringify(note));
+    copyNote.style.backgroundColor = colorclassName;
+    gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+}
 
 function getNotes() {
     if (storageService.load('notes')) {
