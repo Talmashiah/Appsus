@@ -23,6 +23,10 @@ export default class NotePreview extends React.Component {
         noteService.togglePinned(this.props.note);
     }
 
+    toggleTodo = (note,todo) => {
+        noteService.toggleTodoStatus(note, todo);
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
             case 'NoteText':
@@ -30,7 +34,7 @@ export default class NotePreview extends React.Component {
             case 'NoteImg':
                 return <NoteImg note={note} openModal={this.onOpenModal}></NoteImg>
             case 'NoteTodos':
-                return <NoteTodos note={note} openModal={this.onOpenModal}></NoteTodos>
+                return <NoteTodos note={note} openModal={this.onOpenModal} toggleTodo={this.toggleTodo}></NoteTodos>
             case 'NoteVideo':
                 return <NoteVideo note={note} openModal={this.onOpenModal}></NoteVideo>
             default:

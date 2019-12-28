@@ -37,14 +37,16 @@ export default class NoteTextModal extends React.Component {
                 <ul>
                     {props.note.info.todos.map((todo, i) =>
                         <li key={i}>
-                            <input type="checkbox" onClick={() => this.onToggleTodo(todo)}></input>
+                            <input type="checkbox" checked={todo.isDone} onChange={() => this.onToggleTodo(todo)}></input>
                             <span data-text="Todo" className={todo.isDone ? 'todo-done' : ''} suppressContentEditableWarning={true} contentEditable="true" onBlur={(e) => this.onTodoTxtChange(e.target.textContent, todo)}>
                                 {todo.txt}
                             </span>
                             <span> - {this.onSetDateFormat(todo.doneAt)}</span>
                         </li>)}
                 </ul>
-                <button onClick={this.onAddTodo}>add todo</button>
+                <div className="add-todo-btn-container">
+                <button className="add-todo-btn" onClick={this.onAddTodo}>Add todo</button>
+                </div>
             </div>
         </div>
     }
