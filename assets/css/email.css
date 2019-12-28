@@ -59,6 +59,7 @@ a {
 }
 
 .starred {
+   position:sticky;
     color: gold;
     padding-top: 7px;
     width: 30px;
@@ -67,9 +68,8 @@ a {
     border-radius: 55%;
     float: left;
     display: block;
-    position: absolute;
     margin-top: -36px;
-    margin-left: 172px;
+    margin-left: 2px;
     cursor: pointer;
     text-align: center;
     left: 0;
@@ -77,6 +77,7 @@ a {
 }
 
 .not-starred {
+    position:sticky;
     color: rgba(128, 128, 128, 0.596);
     padding-top: 7px;
     width: 30px;
@@ -85,9 +86,8 @@ a {
     border-radius: 55%;
     float: left;
     display: block;
-    position: absolute;
     margin-top: -36px;
-    margin-left: 172px;
+    margin-left: 2px;
     cursor: pointer;
     text-align: center;
     left: 0;
@@ -235,15 +235,9 @@ a {
     margin-left: 170px;
     margin-right: 100px;
     border-radius: 10px;
-}
-
-.side-bar {
-    left: 0;
-    height: 100vh;
-    position: fixed;
-    width: 170px;
-    /* background: rgba(255, 255, 255, 0.226); */
-    background: #00a087;
+    height: 80vh;
+    overflow-y: scroll;
+    
 }
 
 .compose-button {
@@ -595,11 +589,30 @@ a {
     left: 0;
     z-index: 9999;
     width: 100%;
-    background-color: #00a087;
+    background: rgba(255, 255, 255, 0.226);
     height: 70px;
     display: flex;
     justify-content: space-around;
     justify-items: center;
+}
+
+.side-bar {
+    left: 0;
+    height: 100vh;
+    position: fixed;
+    width: 170px;
+    background: rgba(255, 255, 255, 0.226);
+}
+
+html {
+    /* background-image: url('https://wallpapermemory.com/uploads/681/zed-league-of-legends-background-1080p-170883.jpg'); */
+    background-image: url('https://wallpapermemory.com/uploads/600/teemo-wallpaper-hd-1080p-170874.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .home, .about, .notes, .emails, .books {
@@ -617,11 +630,6 @@ a {
 
 .about-page {
     margin-top: 70px;
-}
-
-html {
-    background: #fff;
-    height: 100vh;
 }
 
 /* Compose Modal */
