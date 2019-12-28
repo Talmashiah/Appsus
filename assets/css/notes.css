@@ -81,6 +81,8 @@ body {
     padding: 0px 5px 5px 8px;
     visibility: hidden;
     transition: all ease-in .218s;
+    display: flex;
+    width: 100%;
 }
 
 .note-btn {
@@ -94,6 +96,97 @@ body {
 
 .note-btn:hover {
     background-color: rgba(95,99,104,0.157);
+}
+
+.colors-container{
+    display: none;
+    height: 95px;
+    width: 128px;
+    background-color: #fff;
+    position: absolute;
+    border: solid 1px lightgrey;
+    z-index: 2;
+    top: -66px;
+    left: 72px;
+    cursor: default;
+}
+
+.defualt-color{
+    background-color: white;
+    top: 34px;
+    left: 98px;
+}
+.red-color{
+    background-color: #F44336;
+    top: 34px;
+    left: 35px;
+}
+.orange-color{
+    background-color: #FF9800;
+    top: 34px;
+    left: 67px;
+}
+.yellow-color{
+    background-color: #FFEB3B;
+    top: 34px;
+    left: 4px;
+}
+.green-color{
+    background-color: #4CAF50;
+    left: 4px;
+    top: 3px;
+}
+.teal-color{
+    background-color: #00BCD4;
+    top: 3px;
+    left: 35px;
+}
+.blue-color{
+    background-color: #2196F3;
+    top: 3px;
+    left: 67px;
+}
+.dark-blue-color{
+    background-color: #3F51B5;
+    left: 98px;
+    top: 3px;
+}
+.purple-color{
+    background-color: #9C27B0;
+    top: 65px;
+    left: 98px;
+}
+.pink-color{
+    background-color: #ffbfca;
+    top: 65px;
+    left: 67px;
+}
+.brown-color{
+    background-color: #795548;
+    top: 65px;
+    left: 35px;
+}
+.grey-color{
+    background-color: #9e9e9e;
+    top: 65px;
+    left: 4px;
+}
+
+.note-color-btn:hover .colors-container{
+    display: block;
+}
+
+.colors-container .color{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+    border: solid 1px lightgray;
+    cursor: pointer;
+}
+
+.colors-container .color:hover{
+    border: solid 2px black;
 }
 
 .note-container .note-img{

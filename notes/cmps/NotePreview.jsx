@@ -35,6 +35,24 @@ export default class NotePreview extends React.Component {
         return <div className="note-container">{this.DynamicCmp(props.note)}
             <div className="btn-container">
                 <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
+                <div className='note-btn note-color-btn'>
+                    <i className="fas fa-palette"></i>
+                    <div className="colors-container">
+                        <div className="color defualt-color"></div>
+                        <div className="color red-color"></div>
+                        <div className="color orange-color"></div>
+                        <div className="color yellow-color"></div>
+                        <div className="color green-color"></div>
+                        <div className="color teal-color"></div>
+                        <div className="color blue-color"></div>
+                        <div className="color dark-blue-color"></div>
+                        <div className="color purple-color"></div>
+                        <div className="color pink-color"></div>
+                        <div className="color brown-color"></div>
+                        <div className="color grey-color"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     }
