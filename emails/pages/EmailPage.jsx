@@ -1,4 +1,5 @@
 import emailsService from '../services/emailService.js';
+import eventBusService from '../../services/eventBusService.js';
 import EmailSideBar from '../cmps/EmailSideBar.jsx';
 
 export default class EmailPage extends React.Component {
@@ -10,6 +11,9 @@ export default class EmailPage extends React.Component {
         this.loadEmail();
     }
 
+    onSetFilter = (filterBy) => {
+        this.props.history.push('/emailApp');
+    }
 
     loadEmail() {
         const { id } = this.props.match.params;
@@ -28,10 +32,16 @@ export default class EmailPage extends React.Component {
         this.setState({ email: null });
     }
 
+    onRemove = () => {
+        emailsService.removeEmail(this.state.email);
+        this.props.history.push('/emailApp');
+        this.setState({ email: null });
+    }
+
     render() {
         if (!this.state.email) return <div>Loading...</div>
         return [
-            <EmailSideBar key="s"></EmailSideBar>,
+            <EmailSideBar onSetFilter={this.onSetFilter} key="s"></EmailSideBar>,
             , <div key="g" className={'email-page-container'}>
                 <h1>{this.state.email.from}</h1>
                 <h2>{this.state.email.subject}</h2>
@@ -39,7 +49,7 @@ export default class EmailPage extends React.Component {
                     <div>{this.state.email.body}</div>
                 </div>
                 <button className={'go-back-btn-body'} onClick={this.goBack}>Back</button>
-                <button className={'delete-btn-body'} onClick={this.onDelete}>Delete</button>
+                <button className={'delete-btn-body'} onClick={this.state.email.isTrash ? this.onRemove : this.onDelete}>Delete</button>
             </div>
         ]
 

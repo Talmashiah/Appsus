@@ -3,7 +3,6 @@ import storageService from '../../services/storageService.js'
 import eventBusService from "../../services/eventBusService.js";
 
 
-let gTrashMails = [];
 let gIsDateSortedUp = false;
 let gEmails = [
 
@@ -14,6 +13,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now(),
         id: 1
     },
@@ -24,6 +24,7 @@ let gEmails = [
         isRead: true,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 3600000,
         id: 2
     },
@@ -34,6 +35,7 @@ let gEmails = [
         isRead: true,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 39325237,
         id: 3
     },
@@ -44,6 +46,7 @@ let gEmails = [
         isRead: false,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 1111112,
         id: 4
     },
@@ -54,6 +57,7 @@ let gEmails = [
         isRead: true,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 1111111111,
         id: 5
     },
@@ -64,6 +68,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 124124124,
         id: 6
     },
@@ -74,6 +79,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 124214214214,
         id: 7
     },
@@ -84,6 +90,7 @@ let gEmails = [
         isRead: false,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 2903497809324,
         id: 8
     },
@@ -95,6 +102,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 43257325,
         id: 9
     },
@@ -105,6 +113,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 10000000000,
         id: 10
     },
@@ -116,6 +125,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('June 1, 2019 00:11:22 GMT+00:00').getTime(),
         id: 11
     },
@@ -126,6 +136,7 @@ let gEmails = [
         isRead: true,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('January 12, 2019 00:37:22 GMT+00:00').getTime(),
         id: 12
     },
@@ -136,6 +147,7 @@ let gEmails = [
         isRead: true,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('April 12, 2019 00:54:22 GMT+00:00').getTime(),
         id: 13
     },
@@ -146,6 +158,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('January 27, 2019 00:14:22 GMT+00:00').getTime(),
         id: 14
     },
@@ -156,6 +169,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('July 17, 2019 00:39:22 GMT+00:00').getTime(),
         id: 15
 
@@ -167,6 +181,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('Febuary 7, 2019 00:17:22 GMT+00:00').getTime(),
         id: 16
     },
@@ -177,6 +192,7 @@ let gEmails = [
         isRead: true,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('October 12, 2019 00:14:38 GMT+00:00').getTime(),
         id: 17
     },
@@ -188,6 +204,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('December 16, 2019 00:19:38 GMT+00:00').getTime(),
         id: 18
 
@@ -199,6 +216,7 @@ let gEmails = [
         isRead: false,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('December 24, 2019 00:11:38 GMT+00:00').getTime(),
         id: 19,
     },
@@ -209,6 +227,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('December 26, 2019 00:12:38 GMT+00:00').getTime(),
         id: 20
 
@@ -220,6 +239,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('April 3, 2019 00:16:38 GMT+00:00').getTime(),
         id: 21
 
@@ -231,6 +251,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 1000000,
         id: 22
 
@@ -242,6 +263,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 10000,
         id: 23
 
@@ -253,6 +275,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('March 20, 2019 00:21:38 GMT+00:00').getTime(),
         id: 24
 
@@ -264,6 +287,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('September 27, 2018 00:20:18 GMT+00:00').getTime(),
         id: 25
 
@@ -275,6 +299,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: true,
         sentAt: new Date('August 20, 2019 00:20:18 GMT+00:00').getTime(),
         id: 26
 
@@ -286,6 +311,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 10000,
         id: 27
 
@@ -297,6 +323,7 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('July 20, 69 00:20:18 GMT+00:00').getTime(),
         id: 28
     },
@@ -307,6 +334,7 @@ let gEmails = [
         isRead: true,
         isStarred: true,
         isSent: false,
+        isTrash: false,
         sentAt: new Date('July 20, 89 00:20:18 GMT+00:00').getTime(),
         id: 29
     },
@@ -317,9 +345,21 @@ let gEmails = [
         isRead: false,
         isStarred: false,
         isSent: false,
+        isTrash: false,
         sentAt: Date.now() - 100000,
         id: 30,
     },
+    {
+        from: 'Shmuel',
+        subject: ' I WILL KILL YOU TAL !!!!!!!!!!!!!',
+        body: 'tal I\'\m gonna find you and then I\'\m gonna kill you ',
+        isRead: false,
+        isStarred: false,
+        isSent: true,
+        isTrash: false,
+        sentAt: Date.now() - 100000,
+        id: 32,
+    }
 
 ]
 
@@ -334,7 +374,7 @@ export default {
     getRandomId,
     sendEmail,
     unreadMailCount,
-
+    removeEmail,
 }
 
 
@@ -346,60 +386,70 @@ function getEmails(filterBy) {
         storageService.store('emails', gEmails);
     }
 
+    if (filterBy === 'All') filterBy = null;
+
     if (!filterBy) {
         let copyEmails = JSON.parse(JSON.stringify(gEmails));
-        const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1)
-        return Promise.resolve(sortedEmails);
+        let sortedEmails = copyEmails.filter(email => !email.isTrash);
+        let filteredEmails = sortedEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1);
+        return Promise.resolve(filteredEmails);
     }
-    if (filterBy === 'All') return Promise.resolve([...gEmails]);
 
     if (filterBy === 'Trash') {
-        const filteredEmails = gTrashMails;
+        const filteredEmails = gEmails.filter(email => email.isTrash);
         return Promise.resolve([...filteredEmails]);
     }
 
     if (filterBy === 'Sent') {
-        const filteredEmails = gEmails.filter(email => email.isSent);
-        return Promise.resolve([...filteredEmails]);
+        let filteredEmails = gEmails.filter(email => email.isSent);
+        const sortedEmails = filteredEmails.filter(email => !email.isTrash);
+        return Promise.resolve([...sortedEmails]);
     }
 
     if (filterBy === 'Read') {
-        const filteredEmails = gEmails.filter(email => email.isRead);
-        return Promise.resolve([...filteredEmails]);
+        let filteredEmails = gEmails.filter(email => email.isRead);
+        const sortedEmails = filteredEmails.filter(email => !email.isTrash);
+        return Promise.resolve([...sortedEmails]);
     }
 
     if (filterBy === 'Unread') {
-        const filteredEmails = gEmails.filter(email => !email.isRead);
-        return Promise.resolve([...filteredEmails]);
+        let filteredEmails = gEmails.filter(email => !email.isRead);
+        const sortedEmails = filteredEmails.filter(email => !email.isTrash);
+        return Promise.resolve([...sortedEmails]);
     }
 
     if (filterBy === 'Starred') {
-        const filteredEmails = gEmails.filter(email => email.isStarred);
-        return Promise.resolve([...filteredEmails]);
+        let filteredEmails = gEmails.filter(email => email.isStarred);
+        const sortedEmails = filteredEmails.filter(email => !email.isTrash);
+        return Promise.resolve([...sortedEmails]);
     }
 
     if (filterBy === 'Unstarred') {
-        const filteredEmails = gEmails.filter(email => !email.isStarred);
-        return Promise.resolve([...filteredEmails]);
+        let filteredEmails = gEmails.filter(email => !email.isStarred);
+        const sortedEmails = filteredEmails.filter(email => !email.isTrash);
+        return Promise.resolve([...sortedEmails]);
     }
 
     if (filterBy === 'Date') {
         if (!gIsDateSortedUp) {
             gIsDateSortedUp = !gIsDateSortedUp;
             let copyEmails = JSON.parse(JSON.stringify(gEmails));
-            const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? 1 : -1)
+            let filteredEmails = copyEmails.filter(email => !email.isTrash);
+            const sortedEmails = filteredEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? 1 : -1)
             return Promise.resolve(sortedEmails);
         }
         if (gIsDateSortedUp) {
             gIsDateSortedUp = !gIsDateSortedUp;
             let copyEmails = JSON.parse(JSON.stringify(gEmails));
-            const sortedEmails = copyEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1)
+            let filteredEmails = copyEmails.filter(email => !email.isTrash);
+            const sortedEmails = filteredEmails.sort((emailA, emailB) => (emailA.sentAt > emailB.sentAt) ? -1 : 1)
             return Promise.resolve(sortedEmails);
         }
 
     }
 
-    const filteredEmails = gEmails.filter(email => email.subject.toLowerCase().includes(filterBy.name.toLowerCase())
+    let sortedEmails = gEmails.filter(email => !email.isTrash)
+    const filteredEmails = sortedEmails.filter(email => email.subject.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.body.toLowerCase().includes(filterBy.name.toLowerCase())
         || email.from.toLowerCase().includes(filterBy.name.toLowerCase()));
 
@@ -414,10 +464,18 @@ function getEmailById(emailId) {
 }
 
 function deleteEmail(email) {
-    gTrashMails.push(gEmails.filter((currEmail) => currEmail.id === email.id));
+    if (email.isTrash) return;
+    let copyEmail = JSON.parse(JSON.stringify(email))
+    copyEmail.isTrash = true;
+    gEmails = gEmails.map(email => copyEmail.id === email.id ? copyEmail : email);
+    storageService.store('emails', gEmails);
+    return Promise.resolve(copyEmail);
+}
+
+function removeEmail(email) {
     gEmails = gEmails.filter((currEmail) => currEmail.id !== email.id);
     storageService.store('emails', gEmails);
-
+    return Promise.resolve(gEmails);
 }
 
 

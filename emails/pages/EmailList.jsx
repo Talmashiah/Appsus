@@ -21,7 +21,6 @@ export default class EmailList extends React.Component {
         emailsService.getEmails(this.state.filterBy).then(emails => {
             this.setState({ emails })
         })
-        this.setState({ filterBy: null });
     }
 
     onSetFilter = (filterBy) => {
@@ -30,9 +29,12 @@ export default class EmailList extends React.Component {
 
     deleteEmail = (email) => {
         emailsService.deleteEmail(email);
-        this.setState({ filterBy: null });
         this.loadEmails();
-        this.props.history.push('/emailApp');
+    }
+
+    removeEmail = (email) => {
+        emailsService.removeEmail(email);
+        this.loadEmails();
     }
 
     toggleRead = (email) => {
@@ -57,7 +59,8 @@ export default class EmailList extends React.Component {
             <section className={'app-body'}>
                 <EmailSideBar onSetFilter={this.onSetFilter}></EmailSideBar>
                 <EmailFilter className={'email-filter'} key="1" onSetFilter={this.onSetFilter} />
-                <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email} deleteEmail={this.deleteEmail}
+                <ul className={'email-list'}>{this.state.emails.map((email, i) => <EmailPreview key={i} email={email}
+                    deleteEmail={email.isTrash ? this.removeEmail : this.deleteEmail}
                     toggleRead={this.toggleRead} toggleUnRead={this.toggleUnRead} toggleStar={this.toggleStar}>
                 </EmailPreview>)}</ul>
             </section>
