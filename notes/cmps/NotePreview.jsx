@@ -19,6 +19,10 @@ export default class NotePreview extends React.Component {
         noteService.ChangeNoteColor(this.props.note,colorClassName);
     }
 
+    onTogglePinned = () => {
+        noteService.togglePinned(this.props.note);
+    }
+
     DynamicCmp = (note) => {
         switch (note.type) {
             case 'NoteText':
@@ -39,6 +43,7 @@ export default class NotePreview extends React.Component {
         return <div className={`note-container ${props.note.style.backgroundColor}`} >{this.DynamicCmp(props.note)}
             <div className="btn-container">
                 <div className='note-btn' onClick={this.onDeleteNote}><i className="far fa-trash-alt"></i></div>
+                <div className='note-btn' onClick={this.onTogglePinned}><i className="fas fa-thumbtack"></i></div>
                 <div className='note-btn note-color-btn'>
                     <i className="fas fa-palette"></i>
                     <div className="colors-container">

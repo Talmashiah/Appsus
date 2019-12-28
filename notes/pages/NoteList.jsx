@@ -69,7 +69,12 @@ export default class NoteListPage extends React.Component {
                     <button className="add-note-btn" onClick={this.onAddNote}><i className="fas fa-comment-medical"></i></button>
                 </div>
                 <div className="notes-container">
-                    {this.state.notes.map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
+                    {this.state.notes.some(note=>note.isPinned) && <h3 className="pinned-title">Pinned</h3>}
+                    {this.state.notes.filter((note) => note.isPinned).map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
+                </div>
+                <div className="notes-container">
+                {this.state.notes.some(note=>note.isPinned) && <h3 className="pinned-title">others</h3>}
+                    {this.state.notes.filter((note) => !note.isPinned).map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
                 </div>
             </section>
         )

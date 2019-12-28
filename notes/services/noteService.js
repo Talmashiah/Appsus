@@ -16,14 +16,15 @@ export default {
     editTodoTxt,
     addNote,
     addNoteTodo,
-    ChangeNoteColor
+    ChangeNoteColor,
+    togglePinned
 }
 
 let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             title: "You can Do this!",
             txt: "Do not be afraid of fear"
@@ -35,6 +36,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/13102863_10206290371366052_3929269278468270841_n.jpg?_nc_cat=110&_nc_ohc=zTCQ1Qdsn-EAQk2k3efDIlPZUjKFxxBZZsxY9_BtV3NCT0wB85Ct97aPg&_nc_ht=scontent.ftlv5-1.fna&oh=57d1e5b0e94fc4448c12ba2862ec4cbf&oe=5E6C6C8D",
             title: "Beautiful view from Machu Picchu",
@@ -60,6 +62,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteTodos",
+        isPinned: false,
         info: {
             title: "To do list",
             todos: [
@@ -74,7 +77,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             title: "Credit card pin code:",
             txt: "5792"
@@ -86,6 +89,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://qph.fs.quoracdn.net/main-qimg-225232d1b893f689e7d24ad42e6a0de7",
             title: "Itachi and Sasuke",
@@ -98,6 +102,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteTodos",
+        isPinned: false,
         info: {
             title: "Things to do each day:",
             todos: [
@@ -125,6 +130,7 @@ let gNotes = [
     {
         id: utils.getRandomID(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://scontent.ftlv5-1.fna.fbcdn.net/v/t31.0-8/29355181_10211454886875712_3185929934373046847_o.jpg?_nc_cat=103&_nc_ohc=_4d2prN5rQ4AQlM4JB8RWVmwoqiEo2EipGg24HNKlfw3_KYcSQfckXI_A&_nc_ht=scontent.ftlv5-1.fna&oh=16a729568b36d5bbd7f16f444024a920&oe=5EA473A7",
             title: "My beautiful motorcycle (R.I.P.)",
@@ -136,6 +142,14 @@ let gNotes = [
     }
 
 ];
+
+function togglePinned (note){
+    let copyNote = JSON.parse(JSON.stringify(note));
+    copyNote.isPinned = !copyNote.isPinned;
+    gNotes = gNotes.map(note => copyNote.id === note.id ? copyNote : note);
+    storageService.store('notes', gNotes);
+    eventBusService.emit('noteChanged');
+}
 
 function ChangeNoteColor (note,colorclassName) {
     let copyNote = JSON.parse(JSON.stringify(note));
