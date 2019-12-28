@@ -24,6 +24,7 @@ export default class NoteListPage extends React.Component {
     }
 
     onAddNote = () => {
+        if (this.state.info === '') return;
         noteService.addNote(this.state.info, this.state.type).then(notes => {
             this.setState({ notes, info: '' })
         })
@@ -37,7 +38,7 @@ export default class NoteListPage extends React.Component {
     }
 
     onkeyup = (ev) => {
-        if(event.keyCode === 13) this.onAddNote();
+        if (event.keyCode === 13) this.onAddNote();
     }
 
     DynamicInput = (inputType) => {
@@ -66,18 +67,18 @@ export default class NoteListPage extends React.Component {
             <section className="note-body">
                 <div className="add-notes-container">
                     <div>{this.DynamicInput(this.state.inputType)}</div>
-                    <button className="add-note-btn" onClick={() => this.onChangeInputType('txt')}><i className="fas fa-font"></i></button>
-                    <button className="add-note-btn" onClick={() => this.onChangeInputType('img')}><i className="fas fa-image"></i></button>
-                    <button className="add-note-btn" onClick={() => this.onChangeInputType('video')}><i className="fab fa-youtube"></i></button>
-                    <button className="add-note-btn" onClick={() => this.onChangeInputType('todos')}><i className="fas fa-list"></i></button>
-                    <button className="add-note-btn" onClick={this.onAddNote}><i className="fas fa-comment-medical"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('txt')} title="text"><i className="fas fa-font"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('img')} title="image"><i className="fas fa-image"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('video')} title="video"><i className="fab fa-youtube"></i></button>
+                    <button className="add-note-btn" onClick={() => this.onChangeInputType('todos')} title="todo"><i className="fas fa-list"></i></button>
+                    <button className="add-note-btn add" onClick={this.onAddNote} title="Add">ADD</button>
                 </div>
                 <div className="notes-container">
-                    {this.state.notes.some(note=>note.isPinned) && <h3 className="pinned-title">Pinned</h3>}
+                    {this.state.notes.some(note => note.isPinned) && <h3 className="pinned-title">Pinned</h3>}
                     {this.state.notes.filter((note) => note.isPinned).map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
                 </div>
                 <div className="notes-container">
-                {this.state.notes.some(note=>note.isPinned) && <h3 className="pinned-title">others</h3>}
+                    {this.state.notes.some(note => note.isPinned) && <h3 className="pinned-title">others</h3>}
                     {this.state.notes.filter((note) => !note.isPinned).map((note, i) => <NotePreview key={i} note={note}></NotePreview>)}
                 </div>
             </section>

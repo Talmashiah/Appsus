@@ -97,6 +97,13 @@ body {
     cursor: pointer;
 }
 
+.add-note-btn.add {
+    border-left: solid 2px white;
+    font-size: 16px;
+    font-family: fantasy;
+    padding-left: 5px;
+}
+
 .note-container{
     border: solid 1px lightgrey;
     margin: 13px;
@@ -179,7 +186,7 @@ body {
     position: absolute;
     border: solid 1px lightgrey;
     z-index: 2;
-    top: -69px;
+    top: -66px;
     left: 137px;
     cursor: default;
 }
