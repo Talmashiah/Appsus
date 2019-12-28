@@ -9,6 +9,9 @@ export default class EmailPage extends React.Component {
     }
 
     componentDidMount() {
+        this.eventKiller = eventBusService.on('loadEmail', () => {
+            this.loadEmail();
+        });
         this.loadEmail();
     }
 
@@ -48,16 +51,18 @@ export default class EmailPage extends React.Component {
     render() {
         if (!this.state.email) return <div>Loading...</div>
         return [
-            <EmailSideBar onSetFilter={this.onSetFilter} key="s"></EmailSideBar>,
-            , <div key="g" className={'email-page-container'}>
+            <EmailSideBar onSetFilter={this.onSetFilter}></EmailSideBar>,
+            , <div className={'email-page-container'}>
                 <h1>{this.state.email.from}</h1>
                 <h2>{this.state.email.subject}</h2>
                 <div className={'emailpage-body-container'}>
                     <div>{this.state.email.body}
-                        <span className={'replys-main-container'}>{this.state.email.replys.map((reply, i) => <EmailReply className={'reply-email'}
-                            from={this.state.email.from} keys={i} reply={reply}>
+                        <ul className={'replys-main-container'}>
+                            {this.state.email.replys.map((reply, i) => 
+                            <EmailReply className={'reply-email'}
+                            from={this.state.email.from} idx={i} reply={reply}>
                         </EmailReply>
-                        )}</span>
+                        )}</ul>
                     </div>
                 </div>
                 <button className={'go-back-btn-body'} onClick={this.goBack}>Back</button>

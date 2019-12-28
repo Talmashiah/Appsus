@@ -1,3 +1,4 @@
+const { Link } = ReactRouterDOM
 import NoteText from '../../notes/cmps/NoteText.jsx'
 import NoteImg from '../../notes/cmps/NoteImg.jsx'
 import NoteTodos from '../../notes/cmps/NoteTodos.jsx'
@@ -54,6 +55,7 @@ export default class NotePreview extends React.Component {
                 <div className='note-btn' onClick={this.onTogglePinned}><i className="fas fa-thumbtack"></i></div>
                 <div className='note-btn' onClick={()=>this.onOpenModal(props.note)}><i className="fas fa-edit"></i></div>
                 <div className='note-btn' onClick={()=>this.cloneNote(props.note)}><i className="fas fa-clone"></i></div>
+               <Link to={`/emailApp`}> <div className='note-btn'><i className="fas fa-paper-plane"></i></div></Link>
                 <div className='note-btn note-color-btn'>
                     <i className="fas fa-palette"></i>
                     <div className="colors-container">

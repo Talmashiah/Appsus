@@ -13,11 +13,11 @@ export default class ComposeModal extends React.Component {
             isRead: false,
             isStarred: false,
             isSent: true,
+            isTrash: false,
             sentAt: Date.now(),
+            replys: [],
             id: 31
         }
-
-
     }
 
     componentDidMount() {
@@ -25,6 +25,7 @@ export default class ComposeModal extends React.Component {
             this.setState({ display: true })
         });
     }
+
 
     componentWillUnmount() {
         this.eventKiller && this.eventKiller();

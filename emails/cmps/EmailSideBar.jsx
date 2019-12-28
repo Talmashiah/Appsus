@@ -3,6 +3,7 @@ import emailsService from '../services/emailService.js';
 
 export default class EmailSideBar extends React.Component {
 
+
     onToggleCompose = () => {
         eventBusService.emit('composeModal');
     }

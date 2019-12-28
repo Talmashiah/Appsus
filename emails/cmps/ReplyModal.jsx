@@ -34,6 +34,7 @@ export default class ReplyModal extends React.Component {
     onReply = (ev) => {
         ev.preventDefault();
         emailsService.replyEmail(this.state.reply, this.state.emailId);
+        eventBusService.emit('loadEmail');
         this.closeModal();
     }
 
