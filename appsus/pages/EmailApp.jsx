@@ -11,6 +11,8 @@ const history = createBrowserHistory()
 
 export default class EmailApp extends React.Component {
 
+   
+
     render() {
         return (
             <main className="email-body">
