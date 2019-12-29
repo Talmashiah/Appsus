@@ -426,4 +426,8 @@ body {
         left: calc(50% - 175px);
         max-width: 350px;
     }
+
+    .note-container .btn-container {
+        visibility: visible;
+    }
 }
