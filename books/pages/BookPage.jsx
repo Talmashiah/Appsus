@@ -31,7 +31,7 @@ export default class BookPage extends React.Component {
 
     render() {
         if (!this.state.book) return <div>Loading...</div>
-        return <div>
+        return <div className="book-page-container">
             <BookDetails book={this.state.book} goBack={this.goBack}/>
             <AddReview onSave={this.onAddReview}/>
             <ReviewsPreview reviews={this.state.book.reviews}/>
