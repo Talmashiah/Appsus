@@ -1,3 +1,4 @@
+const { Link } = ReactRouterDOM
 export default class BookFilter extends React.Component {
     state = {
         filterBy: {
@@ -20,6 +21,7 @@ export default class BookFilter extends React.Component {
 
     render() {
         return <div className="books-search-bar">
+            <div className="add-book-btn"><Link to='/booksApp/add-book'>Add book</Link></div>
             <input className="books-search-input" type="text" placeholder="Search by name" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input>
 

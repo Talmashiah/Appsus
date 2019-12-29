@@ -1,7 +1,6 @@
 import Home from '../pages/Home.jsx'
 import BookPage from '../pages/BookPage.jsx'
 import NavBar from '../cmps/NavBar.jsx'
-import aboutPage from '../pages/aboutPage.jsx'
 import AddBook from '../pages/AddBook.jsx'
 import notFoundPage from '../pages/notFoundPage.jsx'
 import UserMsg from '../cmps/UserMsg.jsx'
