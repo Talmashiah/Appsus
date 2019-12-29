@@ -418,6 +418,7 @@ a {
 /* Email Page */
 
 .email-page-container {
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     margin-top: 70px;
     text-align: left;
     padding: 20px;
@@ -605,7 +606,8 @@ a {
     height: 100vh;
     position: fixed;
     width: 170px;
-    background: rgba(255, 255, 255, 0.226);
+    background: rgba(255, 255, 255, 0.1);
+
 }
 
 .html-body {
