@@ -19,11 +19,11 @@ export default class BookFilter extends React.Component {
     }
 
     render() {
-        return <div className="search-bar">
-            <input className="search-input" type="text" placeholder="Search by name" value={this.state.filterBy.name}
+        return <div className="books-search-bar">
+            <input className="books-search-input" type="text" placeholder="Search by name" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input>
 
-            <input className="price-input" type="range"
+            <input className="books-price-input" type="range"
                 value={this.state.filterBy.price} name="price"
                 onChange={this.changeInput} min="1" max="200"></input>
         </div>

@@ -1,4 +1,8 @@
 
+.books-nav-bar{
+    margin-top: 70px;
+}
+
 .main-container{
     font-family: monospace;
 }
@@ -16,12 +20,6 @@
     margin-right:15px
 }
 
-.main-logo{
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
 .books-container {
     display: flex;
     flex-wrap: wrap;
@@ -30,11 +28,7 @@
 
 .book-preview {
     width: 200px;
-    height: 395px;
-    padding: 10px;
-    padding-top: 25px;
     text-align: center;
-    background: beige;
     margin: 15px;
     border: groove 3px darkgray;
     box-shadow: black;
@@ -44,18 +38,25 @@
 }
 
 .book-preview:hover{
-    opacity: 0.85;
     transform: scale(1.03);
 }
 
+.book-preview img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
 .book-title{
-    font-size: 25px;
-    padding: 5px;
+    font-size: 27px;
+    padding: 7px;
+    overflow: hidden;
+    height: 26px;
 }
 
 .book-price{
-    font-size: 20px;
-    padding: 3px;
+    font-size: 25px;
+    margin-bottom: 11px;
 }
 
 .book-price i {

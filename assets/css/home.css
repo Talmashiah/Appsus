@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.home-body{
+    margin-top: 70px;
+}
+
 .appsus-nav-bar {
     text-align: center;
     margin: 0;
@@ -26,16 +30,23 @@
 
 .links-container {
     display: flex;
-    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.link-container{
+    width: 85px;
+    height: 70px;
+    line-height: 70px;
 }
 
 .links-container a{
     font-size: 24px;
     font-family: lobster;
+    padding: 18px 11px;
 }
 
-.links-container a:hover{
-    background-color: aliceblue;
+.link-container:hover{
+    background-color: #ffffff73;
     
 }
 
@@ -54,11 +65,11 @@
     border-radius: 10px;
     float: right;
     float: left;
-    margin-top: 100px;
+    margin-top: 30px;
     left: 0;
     cursor: text;
     margin-right: 13px;
-    width: 298px;
+    width: 350px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 17px;
@@ -77,14 +88,14 @@
     border-radius: 10px;
     background: transparent;
     color: rgb(31, 28, 28);
-    margin-top: 100px;
+    margin-top: 30px;
     font-size: 18px;
     cursor: pointer;
     font-weight: 600;
 }
 
 .bg-btn:hover {
-    background: rgba(187, 190, 192, 0.24);
+    background: #ffffff73;
 }
 
 .search-bg-input::placeholder {

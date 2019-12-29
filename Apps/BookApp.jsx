@@ -22,7 +22,6 @@ export default class BookApp extends React.Component {
                     <Switch>
                         <Route component={Home} path="/booksApp" exact />
                         <Route component={BookPage} path="/booksApp/book/:id" exact />
-                        <Route component={aboutPage} path="/booksApp/about" exact />
                         <Route component={AddBook} path="/booksApp/add-book" exact />
                         <Route component={notFoundPage} path="/booksApp" />
                     </Switch>

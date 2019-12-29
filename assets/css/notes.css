@@ -191,8 +191,8 @@ body {
     position: absolute;
     border: solid 1px lightgrey;
     z-index: 2;
-    top: -66px;
-    left: 175px;
+    top: -65px;
+    left: 167px;
     cursor: default;
 }
 
@@ -340,7 +340,7 @@ body {
     min-width: 500px;
     max-width: 525px;
     left: calc(50% - 250px);
-    top: calc(100vh - 625px);
+    top: calc(100vh - 575px);
     opacity: 1;
     border-radius: 8px;
     box-shadow: 4px 5px 14px 2px rgba(0,0,0,0.25);
@@ -402,8 +402,8 @@ body {
 @media (max-width: 650px){
     .notes-container {
     column-count: 1;
-    max-width: 415px;
-    padding: 0 25px;
+    max-width: 450px;
+    padding: 0 10px;
     }
 
     .add-notes-container {
@@ -420,5 +420,11 @@ body {
 
     .add-note-btn.add {
         font-size: 14px;
+    }
+
+    .modal .inner-container {
+        min-width: 350px;
+        left: calc(50% - 175px);
+        max-width: 350px;
     }
 }

@@ -620,13 +620,6 @@ a {
     overflow: hidden;
 }
 
-.home, .about, .notes, .emails, .books {
-    padding-top: 15px;
-    font-size: 30px;
-    width: 100px;
-    height: 15px;
-}
-
 .search-bar {
     margin-top: 70px;
 }

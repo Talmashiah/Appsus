@@ -32,11 +32,11 @@ class AppSus extends React.Component {
 
     render() {
         return (
-            <main classname="home-body">
+            <main className="home-body">
                 <Router history={history}>
                     <AppsusNavBar></AppsusNavBar>
                     <Switch>
-                        <Route component={AppsusHome} path="/home" exact />
+                        <Route component={AppsusHome} path="/" exact />
                         <Route component={BookApp} path="/booksApp"/>
                         <Route component={EmailApp} path="/emailApp"/>
                         <Route component={NoteApp} path="/noteApp"/>
