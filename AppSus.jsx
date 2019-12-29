@@ -32,7 +32,7 @@ class AppSus extends React.Component {
 
     render() {
         return (
-            <main>
+            <main classname="home-body">
                 <Router history={history}>
                     <AppsusNavBar></AppsusNavBar>
                     <Switch>

@@ -570,54 +570,6 @@ a {
     font-weight: 700;
 }
 
-.search-bg-input {
-    outline: none;
-    background: rgba(241, 243, 244, 0.24);
-    color: white;
-    border: none;
-    outline: none;
-    padding-left: 16px;
-    height: 28px;
-    border-radius: 6px;
-    float: right;
-    float: left;
-    margin-top: 100px;
-    left: 0;
-    cursor: text;
-    margin-right: 13px;
-    width: 298px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 17px;
-    cursor: text;
-}
-
-.search-bg-container {
-    display: flex;
-    justify-content: center;
-}
-
-.bg-btn {
-    outline: none;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    background: rgba(241, 243, 244, 0.24);
-    color: white;
-    margin-top: 100px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.bg-btn:hover {
-    background: rgba(187, 190, 192, 0.24);
-}
-
-.search-bg-input::placeholder {
-    color: white;
-    font-weight: 700;
-}
-
 .email-list-header {
     display: flex;
     justify-content: space-between;
@@ -647,20 +599,6 @@ a {
 
 /*Apsus Nav Bar */
 
-.appsus-nav-bar {
-    text-align: center;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.226);
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    justify-items: center;
-}
 
 .side-bar {
     left: 0;

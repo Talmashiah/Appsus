@@ -1,4 +1,6 @@
 
+/*media qurey*/
+
 /*general*/
 
 body {
@@ -52,6 +54,7 @@ body {
     max-width: 980px;;
     margin: auto;
     margin-top: 25px;
+    padding: 0 50px;
 }
 
 .pinned-title {
@@ -387,4 +390,35 @@ body {
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+@media (max-width:980px){
+    .notes-container{
+        column-count: 2;
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 650px){
+    .notes-container {
+    column-count: 1;
+    max-width: 415px;
+    padding: 0 25px;
+    }
+
+    .add-notes-container {
+        width: 350px;
+    }
+
+    .add-note-input {
+        font-size: 14px;
+    }
+
+    .add-note-btn {
+        font-size: 14px;
+    }
+
+    .add-note-btn.add {
+        font-size: 14px;
+    }
 }
