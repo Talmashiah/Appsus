@@ -170,13 +170,9 @@ function getNotes() {
 }
 
 function cloneNote(note){
-<<<<<<< HEAD
-    gNotes = [...gNotes, note];
-=======
     let copyNote = JSON.parse(JSON.stringify(note));
     copyNote.id = utils.getRandomID();
     gNotes = [...gNotes, copyNote];
->>>>>>> e2fe89f3ffbafdd228e2549c4f7c20425175a497
     storageService.store('notes', gNotes);
     eventBusService.emit('noteChanged');
 }
