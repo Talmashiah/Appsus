@@ -1127,6 +1127,7 @@ a {
     }
     .preview-date {
         margin: 0;
+        display: block;
         padding-top: 40px;
     }
     .dropdown-content {
