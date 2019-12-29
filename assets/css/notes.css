@@ -72,10 +72,17 @@ body {
     justify-content: space-around;
     height: 35px;
     margin: auto;
+<<<<<<< HEAD
     border: solid 2px #e0e0e0;
     width: 450px;
     border-radius: 5px;
     box-shadow: 3px 10px 13px -9px #cecece;
+=======
+    border: solid 1px #0a0a0a;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 3px 10px 13px -9px #3d3a3a;
+>>>>>>> e2fe89f3ffbafdd228e2549c4f7c20425175a497
 }
 
 .add-note-input {
@@ -98,10 +105,18 @@ body {
 }
 
 .add-note-btn.add {
+<<<<<<< HEAD
     border-left: solid 2px white;
     font-size: 16px;
     font-family: fantasy;
     padding-left: 5px;
+=======
+    border-left: solid 1px #292121;
+    font-size: 16px;
+    font-family: fantasy;
+    padding-left: 5px;
+    padding-bottom: 4px;
+>>>>>>> e2fe89f3ffbafdd228e2549c4f7c20425175a497
 }
 
 .note-container{
@@ -287,6 +302,10 @@ body {
     width: 100%;
     border-radius: 5px;
     height: 175px;
+<<<<<<< HEAD
+=======
+    object-fit: cover;
+>>>>>>> e2fe89f3ffbafdd228e2549c4f7c20425175a497
 }
 
 .todo-done{

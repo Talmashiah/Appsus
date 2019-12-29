@@ -104,13 +104,14 @@ a {
 
 .bold {
     text-shadow: white 0px 0px 10px;
-    background: rgba(255, 255, 255, 0.39);
     font-weight: 900;
+    background: rgba(255,255,255,0.902);
 }
 
 .unbold {
     text-shadow: white 0px 0px 10px;
     font-weight: 100;
+    background: rgba(242,245,245,0.8);
 }
 
 .subject-only::after {
@@ -268,6 +269,7 @@ a {
 .fa-plus {
     background: -webkit-linear-gradient(#e66465, #9198e5);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 8px;
     margin-right: -4px;
@@ -662,12 +664,10 @@ a {
     background: rgba(255, 255, 255, 0.226);
 }
 
-html {}
-
 .html-body {
-    /* background-image: url('https://wallpapermemory.com/uploads/681/zed-league-of-legends-background-1080p-170883.jpg'); */
-    /* background-image: url('https://wallpapermemory.com/uploads/600/teemo-wallpaper-hd-1080p-170874.jpg'); */
-    /* background-image:url('https://wallpapermemory.com/uploads/495/jinx-league-of-legends-background-hd-2560x1440-170898.jpg');  */
+    /* background-image: url('https://wallpapermemory.com/uploads/681/zed-league-of-legends-background-1080p-170883.jpg');
+    background-image: url('https://wallpapermemory.com/uploads/600/teemo-wallpaper-hd-1080p-170874.jpg');
+    background-image:url('https://wallpapermemory.com/uploads/495/jinx-league-of-legends-background-hd-2560x1440-170898.jpg'); */
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
