@@ -46,7 +46,7 @@ a {
 
 .email-preview .preview-body {
     padding-left: 5px;
-    max-width: 800px;
+    max-width: 900px;
     font-weight: 100;
     white-space: nowrap;
     overflow: hidden;
@@ -55,7 +55,7 @@ a {
 
 .subject-preview {
     min-width: 100px;
-    max-width: 935px;
+    max-width: 880px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -836,9 +836,18 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
+    .reply-container {
+        width: 59vw;
+        margin-left: 550px;
+        margin-right: 108px;
+    }
 }
 
 @media (max-width:1220px) {
+    .reply-container {
+        width: 59vw;
+        margin-right: 197px;
+    }
     .subject-preview {
         max-width: 500px;
     }
@@ -1075,7 +1084,7 @@ a {
         margin-right: 334px;
     }
     .email-list-header .search-input {
-        margin-left: 148px;
+        margin-left: 188px;
         width: 100px;
     }
     .email-list-header {
@@ -1083,7 +1092,7 @@ a {
     }
     .dropbtn {
         margin-right: 0px;
-        margin-left: -115px;
+        margin-left: -95px;
     }
     .email-preview-container {
         max-width: 287px;
@@ -1092,15 +1101,67 @@ a {
         max-width: 174px;
     }
     .subject-preview {
-        max-width: 207px;
+        max-width: 170px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .open-button-preview {
-        margin-right: 120px;
+        margin-left: 0;
+        margin-right: 56px;
+        display: none;
     }
     .delete-button-preview {
-        margin-right: 100px;
+        margin-right: 28px;
+        margin-left: 0;
+        display: none;
     }
     .mark-read-button {
-        margin-right: 130px;
+        margin-right: 0;
+        margin-left: 30px;
+        display: none;
+    }
+    .back-inbox-btn {
+        display: none;
+        margin-right: 84px;
+    }
+    .preview-date {
+        display: none;
+        margin: 0;
+        padding-top: 40px;
+    }
+    .dropdown-content {
+        margin: 0;
+        right: 0;
+        width: 100px;
+        margin-right: -40px;
+    }
+}
+
+@media (max-width:400px) {
+    .emailpage-body-container {
+        margin-bottom: 4px;
+    }
+    .email-page-container h2 {
+        font-size: 14px;
+    }
+    .open-button-preview {
+        margin-left: 0;
+        margin-right: 56px;
+        display: block;
+    }
+    .delete-button-preview {
+        margin-right: 28px;
+        margin-left: 0;
+        display: block;
+    }
+    .mark-read-button {
+        margin-right: 0;
+        margin-left: 30px;
+        display: block;
+    }
+    .back-inbox-btn {
+        display: block;
+        margin-right: 84px;
     }
 }
