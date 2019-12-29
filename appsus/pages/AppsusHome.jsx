@@ -25,12 +25,12 @@ export default class AppsusHome extends React.Component {
 
     changeBg = () => {
         document.body.style.backgroundImage = `url(${this.state.bg})`;
+        this.setState({ bg:'' });
     }
 
     render() {
         return (
             <section className={'apsus-home'}>
-                <div>Appsus Home</div>
                 <div className={'search-bg-container'}>
                     <input className={'search-bg-input'} type="text" placeholder="Set Background URL"
                         value={this.state.bg} onChange={this.onChangeBg}>
