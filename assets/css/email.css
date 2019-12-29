@@ -1084,7 +1084,7 @@ a {
         margin-right: 334px;
     }
     .email-list-header .search-input {
-        margin-left: 148px;
+        margin-left: 188px;
         width: 100px;
     }
     .email-list-header {
@@ -1092,7 +1092,7 @@ a {
     }
     .dropbtn {
         margin-right: 0px;
-        margin-left: -115px;
+        margin-left: -95px;
     }
     .email-preview-container {
         max-width: 287px;
@@ -1139,6 +1139,12 @@ a {
 }
 
 @media (max-width:400px) {
+    .emailpage-body-container {
+        margin-bottom: 4px;
+    }
+    .email-page-container h2 {
+        font-size: 14px;
+    }
     .open-button-preview {
         margin-left: 0;
         margin-right: 56px;
