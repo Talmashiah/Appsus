@@ -109,7 +109,6 @@ body {
 }
 
 .note-container{
-    border: solid 1px lightgrey;
     margin: 13px;
     border-radius: 5px;
     cursor: pointer;
