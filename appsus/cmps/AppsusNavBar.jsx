@@ -21,7 +21,7 @@ export default class AppsusNavBar extends React.Component {
     return (<nav>
      
         <div className="appsus-nav-bar">
-            <div><NavLink activeClassName="active" to='/' exact><img className='main-logo' src="/img/logo.png" alt="logo" /></NavLink></div>
+            <div><NavLink activeClassName="active" to='/' exact><img className='main-logo' src="img/logo.png" alt="logo" /></NavLink></div>
             <button id="menu-btn" className="menu-btn" onClick={this.toggleBox}><i className="fas fa-bars"></i></button>
             
             <div className={this.state.isNavVisible ? 'links-container main-menu menu-open' : 'links-container main-menu'}>  
