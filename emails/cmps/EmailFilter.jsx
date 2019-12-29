@@ -20,12 +20,22 @@ export default class EmailFilter extends React.Component {
     onFilter = (ev) => {
         this.props.onSetFilter(ev.target.value);
     }
+    onToggleMenu = () => {
+        document.querySelector('.side-bar').classList.toggle('open');
+        document.querySelector('.main-nav').classList.toggle('menu-open');
+
+    }
 
 
 
     render() {
         return <div className="email-list-header">
-            <span><i className="fas fa-search"></i></span>
+            <nav className={'main-nav'}>
+                <button className={'nav-hamburger'} onClick={this.onToggleMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button> </nav>
             <div className={'search-input-container'}><input className="search-input" type="text" placeholder="Search Mail" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input></div>
             <div className={'dropdown'}>
