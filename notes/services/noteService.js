@@ -170,6 +170,7 @@ function getNotes() {
 }
 
 function cloneNote(note){
+    
     let copyNote = JSON.parse(JSON.stringify(note));
     copyNote.id = utils.getRandomID();
     gNotes = [...gNotes, copyNote];
